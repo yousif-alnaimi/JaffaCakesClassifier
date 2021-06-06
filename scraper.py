@@ -147,11 +147,11 @@ def classify_ingredients(ingred_list):
                 failed = True
                 break
             if "yolk" in i:
-                quantity *= 22  # average mass of a large egg yolk
+                quantity *= 22  # average volume of an egg yolk
             elif "white" in i:
-                quantity += 30  # average mass of a large egg white
+                quantity += 30  # average volume of an egg white
             else:
-                quantity *= 52  # average mass of a large egg
+                quantity *= 52  # average volume of an egg
             new = start_dict.get("egg") + quantity
             start_dict.update({"egg": new})
 
