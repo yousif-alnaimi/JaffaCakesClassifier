@@ -6,7 +6,7 @@
 ## Scraping
  The main source for the data is from the cake and biscuit sections of [allrecipes.co.uk](http://allrecipes.co.uk). The scraper first finds the second index page of the section (this is because the first page is formatted differently, and so cannot be easily scraped). Then, it takes each entry in the page and fetches the recipe link from each one. Within each recipe link, the scraper finds every <li> tag in the ingredients class on the webpage, then extracts the text and cleans it for later processing.
  
- The next step is to classify the data into features using regex (ignoring case). This finds the data and converts the units to be ml or g as appropriate. Broad strokes had to be used to prevent the number of features from becoming too large, and what goes into each category are defined below in the order they would be accepted &#8722; if one is seen before the other, the latter mention is ignored (e.g. salted butter would be classified as butter, and give 0 to salt):
+ The next step is to classify the data into features using regex (ignoring case). This finds the data and converts the units to be ml or g as appropriate. Broad strokes had to be used to prevent the number of features from becoming too large, and what goes into each category are defined below in the order they would be accepted, so that if one is seen before the other, the latter mention is ignored (e.g. salted butter would be classified as butter, and give 0 to salt):
  - Sugar: any string containing the word "sugar"
  - Butter: any string containing the words "butter", "margarine", or "oil"
  - Egg: any string containing the word "egg" (this includes eggs when separated into yolks and whites, and adjusts quantities accordingly)
