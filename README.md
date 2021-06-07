@@ -86,8 +86,8 @@ pronounced graph, though the default behaviour is to divide the centred data by 
 run on the dataset with labels removed, reducing the number of components to 2 and allowing us to graph it.
 
 The next step was to graph this data, separating them out by label into different colours and marker shapes to give a
-graphical view of the data split. The Jaffa Cake points are then labelled with their recipe number (the row they in
-which they appear in the Jaffa Cake csv), and results both labelled and unlabelled have been drawn. An optional step is
+graphical view of the data split. The Jaffa Cake points are then labelled with their recipe number (the row in which
+they appear in the Jaffa Cake csv), and results both labelled and unlabelled have been drawn. An optional step is
 included which changes the colours of each class to be consistent with the colours of a Jaffa Cake, however this is
 disabled by default as the classes are not as clear. These graphs can be found in the `graphs` folder. Here is the
 result of the default graph:
