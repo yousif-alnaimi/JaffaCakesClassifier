@@ -5,6 +5,8 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
+import matplotlib.pyplot as plt
 
 # get the main datasets from importer.py
 from importer import X_orig_std, y, X_train_std, X_test_std, y_train_std, y_test_std
@@ -27,7 +29,51 @@ model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estima
 scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores3.mean(), scores3.std(), "Boosting")
 
-# KNN model
+# # KNN model performance grapher with respect to k - disabled by default as graph is already obtained
+# # initialise list of data for each iteration
+# perf_list = []
+# # for loop to iterate through n_neighbours (k) from 1 to 100, then add to a list of tuples
+# for i in range(1, 51):
+#       model4 = KNeighborsClassifier(n_neighbors=i, weights="distance", algorithm="ball_tree", p=2)
+#       scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
+#       perf_list.append((scores4.mean(), scores4.std(), i))
+#
+# # print perf_list for numeric viewing
+# print(perf_list)
+# # convert the list of tuples into a dataframe for easy plotting
+# perf_df = pd.DataFrame({"Mean": [i[0] for i in perf_list], "Standard Deviation": [i[1] for i in perf_list],
+#                         "K": [i[2] for i in perf_list]})
+#
+# # intitalise figure
+# fig, ax = plt.subplots()
+#
+# # set x and y labels and colours
+# ax.set_xlabel('K')
+# ax.set_ylabel('Mean', color='tab:red')
+# ax.tick_params(axis='y', labelcolor='tab:red')
+# # plot a scatter plot of the means in red
+# ax.scatter(perf_df["K"], perf_df["Mean"], color='tab:red')
+#
+# # intialise second y axis for standard deviation
+# ax2 = ax.twinx()
+#
+# # initialise colour parameters and labels
+# ax2.set_ylabel('Standard Deviation', color='tab:blue')
+# ax2.tick_params(axis='y', labelcolor='tab:blue')
+#
+# # Scatter plot the Standard Deviation
+# ax2.scatter(perf_df["K"], perf_df["Standard Deviation"], color='tab:blue')
+#
+# # prevent clipping of right label
+# fig.tight_layout()
+# # add grid lines for added clarity
+# ax.grid(b=True, which='both', axis='both')
+#
+# # save and show the figure
+# plt.savefig("graphs/KNN_comparison.png", dpi=300)
+# plt.show()
+
+# Chosen KNN model
 model4 = KNeighborsClassifier(n_neighbors=22, weights="distance", algorithm="ball_tree", p=2)
 scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores4.mean(), scores4.std(), "KNN")
