@@ -121,10 +121,10 @@ can be found below
 
  ```angular2html
 for i in range(1,15):
-model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estimators=240,
-learning_rate=0.15, max_depth=i)
-scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
-print(scores3.mean(), scores3.std(), "Boosting", i)
+  model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estimators=240,
+                                      learning_rate=0.15, max_depth=i)
+  scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
+  print(scores3.mean(), scores3.std(), "Boosting", i)
  ```
 
 The output of this script can be found in `classifier.txt` in the `text_results` folder.
