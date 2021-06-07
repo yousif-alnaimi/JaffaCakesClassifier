@@ -1,0 +1,66 @@
+0.8338686131386861 0.010256448508175345 LR
+0.8671532846715329 0.007888616692616812 Forest
+0.8630656934306569 0.012840077913749515 Boosting
+0.8566423357664232 0.013135441610746855 KNN
+0.8017518248175183 0.014404550520927319 Tree
+0.8522627737226276 0.008532344056176618 SVM
+LR               precision    recall  f1-score   support
+
+     biscuit       0.73      0.66      0.69       286
+        cake       0.84      0.88      0.86       571
+
+    accuracy                           0.81       857
+   macro avg       0.79      0.77      0.78       857
+weighted avg       0.80      0.81      0.80       857
+ [[188  98]
+ [ 68 503]]
+Forest               precision    recall  f1-score   support
+
+     biscuit       0.79      0.79      0.79       286
+        cake       0.89      0.89      0.89       571
+
+    accuracy                           0.86       857
+   macro avg       0.84      0.84      0.84       857
+weighted avg       0.86      0.86      0.86       857
+ [[225  61]
+ [ 61 510]]
+Boost               precision    recall  f1-score   support
+
+     biscuit       0.77      0.79      0.78       286
+        cake       0.89      0.88      0.89       571
+
+    accuracy                           0.85       857
+   macro avg       0.83      0.84      0.84       857
+weighted avg       0.85      0.85      0.85       857
+ [[226  60]
+ [ 66 505]]
+KNN               precision    recall  f1-score   support
+
+     biscuit       0.78      0.78      0.78       286
+        cake       0.89      0.89      0.89       571
+
+    accuracy                           0.85       857
+   macro avg       0.83      0.84      0.83       857
+weighted avg       0.85      0.85      0.85       857
+ [[224  62]
+ [ 64 507]]
+Tree               precision    recall  f1-score   support
+
+     biscuit       0.66      0.73      0.70       286
+        cake       0.86      0.81      0.83       571
+
+    accuracy                           0.79       857
+   macro avg       0.76      0.77      0.76       857
+weighted avg       0.79      0.79      0.79       857
+ [[210  76]
+ [108 463]]
+SVM               precision    recall  f1-score   support
+
+     biscuit       0.79      0.72      0.75       286
+        cake       0.87      0.91      0.89       571
+
+    accuracy                           0.84       857
+   macro avg       0.83      0.81      0.82       857
+weighted avg       0.84      0.84      0.84       857
+ [[206  80]
+ [ 54 517]]

@@ -1,0 +1,3 @@
+Forest [('cake', 1), ('cake', 2), ('cake', 3), ('cake', 4), ('biscuit', 5), ('cake', 6), ('biscuit', 7), ('biscuit', 8), ('biscuit', 9), ('cake', 10), ('cake', 11), ('cake', 12)]
+Boosting [('cake', 1), ('cake', 2), ('cake', 3), ('cake', 4), ('biscuit', 5), ('cake', 6), ('cake', 7), ('biscuit', 8), ('biscuit', 9), ('cake', 10), ('cake', 11), ('cake', 12)]
+KNN [('cake', 1), ('cake', 2), ('cake', 3), ('cake', 4), ('biscuit', 5), ('cake', 6), ('biscuit', 7), ('cake', 8), ('biscuit', 9), ('cake', 10), ('cake', 11), ('cake', 12)]
