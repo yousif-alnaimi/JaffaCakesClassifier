@@ -9,7 +9,7 @@ from sklearn.tree import DecisionTreeClassifier
 from importer import X, X_train, X_test, y, y_train, y_test  # get the main datasets from importer.py
 
 # baseline logistic regression model
-model1 = LogisticRegression(solver='liblinear')
+model1 = LogisticRegression()
 # cross validation to evaluate the model with less variance
 scores1 = cross_val_score(model1, X, y, cv=5, scoring="accuracy")
 # show the performance calculations

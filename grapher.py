@@ -25,7 +25,7 @@ y_for_graph = pd.concat([y, y_jaffa_for_graph])
 # initialise and scale total dataset (this centres the mean to 0)
 sc = StandardScaler(with_std=False)  # disables scaling of standard deviation to 1 to produce a more pronounced graph
 X_std = sc.fit_transform(X_for_graph)
-# initalise PCA method and fit the dataset to it
+# initialise PCA method and fit the dataset to it
 pca = decomposition.PCA(n_components=2, svd_solver="full")
 X_std_pca = pca.fit_transform(X_std)  # Run the PCA
 # transform the dataframe into a numpy array to remake a data frame with the new PCA elements
@@ -56,6 +56,16 @@ lgnd = gfg_pca.legend()
 # change point transparency in the legend to make it more readable
 lgnd.legendHandles[0].set_alpha(0.5)
 lgnd.legendHandles[1].set_alpha(0.5)
+
+# for loop to go through every jaffa cake point and label it with the recipe number
+for i in range(11):
+    plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[i],
+             y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[i],
+             s=str(i+1), fontdict=dict(color="black", alpha=0.75, size=14))
+# extra line to reformat recipe 11 as otherwise it would overlap with the text of number 3
+plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[11]-0.05,
+         y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[11], s="12",
+         fontdict=dict(color="black", alpha=0.75, size=14))
 
 # save the figure into a file, then show the graph in the console
 plt.savefig("graphs/default_PCA.png", dpi=300)

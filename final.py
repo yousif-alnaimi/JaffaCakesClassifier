@@ -18,5 +18,11 @@ forest_predictions = forest_pred_model.predict(X_jaffa)
 boost_predictions = boost_pred_model.predict(X_jaffa)
 knn_predictions = knn_pred_model.predict(X_jaffa)
 
-# print the predictions
-print(forest_predictions, boost_predictions, knn_predictions)
+# augment data with added recipe numbers for added insight in conjunction with the graph
+forest_predictions_print = [(forest_predictions[i], i+1) for i in range(12)]
+boost_predictions_print = [(boost_predictions[i], i+1) for i in range(12)]
+knn_predictions_print = [(knn_predictions[i], i+1) for i in range(12)]
+
+# print the predictions with the recipe numbers
+print("Forest", forest_predictions_print, "\nBoosting", boost_predictions_print,
+      "\nKNN", knn_predictions_print)
