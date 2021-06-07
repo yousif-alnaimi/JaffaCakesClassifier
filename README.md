@@ -17,7 +17,7 @@ cleans it for later processing.
 The next step is to classify the data into features using regex (ignoring case). This finds the data and converts the
 units to be ml or g as appropriate. Broad strokes had to be used to prevent the number of features from becoming too
 large, and what goes into each category are defined below in the order they would be accepted - if one is seen before
-the other, the latter mention is ignored (e.g., salted butter would be classified as butter, and give 0 to salt):
+the other, the latter mention is ignored (e.g. salted butter would be classified as butter, and give 0 to salt):
 
 - Sugar: any string containing the word "sugar"
 - Butter: any string containing the words "butter", "margarine", or "oil"
@@ -44,14 +44,14 @@ the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or
 Finally, this data was written into a csv from the dictionary of the recipe each time, as this means that, in the rare
 event of a crash or failure, progress is not lost (at the time of writing, all errors in reading were removed). These
 can be found in the `csv_tests` and `data` folders. The final csvs had labels added to them manually, as well as manual
-pruning of obviously outlier results (e.g., 75 kg of flour or 600g of salt).
+pruning of obviously outlier results (e.g. 75 kg of flour or 600g of salt).
 
 ## Importing
 
 These datasets are recorded separately into a cake csv and a biscuit csv. These are imported into pandas DataFrames,
 duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then concatenated into one larger
 DataFrame. The next step was to split these into a feature and label set, then to normalise the data in the feature set
-such that the features are proportions of recipes (i.e., the rows sum to one). Then the `train_test_split` occurs to
+such that the features are proportions of recipes (i.e. the rows sum to one). Then the `train_test_split` occurs to
 give us separate datasets in an 80:20 ratio to give us insight later in the classification step. Then, `StandardScaler`
 was applied to give the classification algorithms more standardised data to work on.
 
