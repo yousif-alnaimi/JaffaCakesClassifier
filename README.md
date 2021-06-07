@@ -92,7 +92,7 @@ included which changes the colours of each class to be consistent with the colou
 disabled by default as the classes are not as clear. These graphs can be found in the `graphs` folder. Here is the
 result of the default graph:
 
-![Default PCA graph of the whole dataset]('/graphs/default_PCA.png')
+![Default PCA graph of the whole dataset](graphs/default_PCA.png)
 
 Notice the point corresponding to recipe 11 in the far right of the graph - this point is the recipe which contains no
 sugar mentioned earlier. We can clearly see this is an outlier, especially as it deviates from the rest of the data as
