@@ -33,7 +33,7 @@ the other, the latter mention is ignored (e.g., salted butter would be classifie
 
 The units where then found using regex in the `quantity_finder()` function, then placed into a dictionary for the
 current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup. Should the
-units not be ascertainable, the unit was defulated to grams (this helps in the case of "a pinch of salt"). In this case,
+units not be ascertainable, the unit was defaulted to grams (this helps in the case of "a pinch of salt"). In this case,
 recipes where a unit was exclusively denominated in ounces was removed, as they had a high chance of subverting the
 regex detection due to inaccurate use of spaces, and this amounted to a small portion of total results skipped. Note
 that the recorded recipes omit ingredients related to flavouring that do not change the make-up of the cake like nuts,
