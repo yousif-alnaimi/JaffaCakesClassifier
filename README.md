@@ -114,7 +114,7 @@ case. The reasons for selection and rejection for each model is summarised in th
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/) were iterated through to maximise the performance,
+the [documentation pages for sklearn](https://scikit-learn.org/), were iterated through to maximise the performance,
 while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code used
 can be found below
 (altering the `max_depth` parameter in the gradient boosting model):
