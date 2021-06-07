@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # import biscuit and cake datasets
 df_biscuit = pd.read_csv("data/biscuit-recipes-complete.csv", header=0)
@@ -23,6 +24,11 @@ y = df.label
 X = X.div(X.sum(axis=1), axis=0)
 # split into train and test sets with an 80:20 split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
+
+# running standard scaling on the data to aid KNN
+sc = StandardScaler()
+X_orig_std = sc.fit_transform(X)
+X_train_std, X_test_std, y_train_std, y_test_std = train_test_split(X, y, test_size=0.2, random_state=0)
 
 # import jaffa cake data
 df_jaffa = pd.read_csv("data/jaffa-cake-recipes.csv")

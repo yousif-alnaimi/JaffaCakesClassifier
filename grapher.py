@@ -61,11 +61,11 @@ lgnd.legendHandles[1].set_alpha(0.5)
 for i in range(11):
     plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[i],
              y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[i],
-             s=str(i+1), fontdict=dict(color="black", alpha=0.75, size=14))
+             s=str(i + 1), fontdict=dict(color="black", alpha=0.75, size=11))
 # extra line to reformat recipe 11 as otherwise it would overlap with the text of number 3
-plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[11]-0.05,
+plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[11] - 0.05,
          y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[11], s="12",
-         fontdict=dict(color="black", alpha=0.75, size=14))
+         fontdict=dict(color="black", alpha=0.75, size=11))
 
 # save the figure into a file, then show the graph in the console
 plt.savefig("graphs/default_PCA.png", dpi=300)
