@@ -121,8 +121,8 @@ case. The reasons for selection and rejection for each model is summarised in th
 Then, for each of these models, the parameters, found on
 the [documentation pages for sklearn](https://scikit-learn.org/), were iterated through to maximise the performance,
 while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code used
-can be found below
-(altering the `max_depth` parameter in the gradient boosting model):
+(in this case altering the `max_depth` parameter in the boosting algorithm)
+can be found below, as well as in the comments of classifier.py in the KNN graphing section:
 
  ```angular2html
 for i in range(1,15):
@@ -131,6 +131,14 @@ for i in range(1,15):
   scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
   print(scores3.mean(), scores3.std(), "Boosting", i)
  ```
+ 
+Similarly, the resulting graph from collecting the mean performance and standard deviations can be found here:
+
+![Graph of mean performance and standard deviation of performance against K](graphs/KNN_comparison.png)
+
+Here we can see that K=22 has the highest mean, as well as a middling standard deviation (the differences in
+standard deviation across this graph are very low, so this does not matter too much), and so this was
+chosen as the value for n_neighbours in the final model.
 
 The output of this script can be found in `classifier.txt` in the `text_results` folder.
 
