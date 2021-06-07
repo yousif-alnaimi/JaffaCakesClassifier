@@ -89,10 +89,14 @@ The next step was to graph this data, separating them out by label into differen
 graphical view of the data split. The Jaffa Cake points are then labelled with their recipe number (the row they in
 which they appear in the Jaffa Cake csv), and results both labelled and unlabelled have been drawn. An optional step is
 included which changes the colours of each class to be consistent with the colours of a Jaffa Cake, however this is
-disabled by default as the classes are not as clear. These graphs can be found in the `graphs` folder. Notice the point
-corresponding to recipe 11 in the far right of the graph - this point is the recipe which contains no sugar mentioned
-earlier. We can clearly see this is an outlier, especially as it deviates from the rest of the data as it is the only
-recipe to have no sugar in it, though it is still included as a potential recipe.
+disabled by default as the classes are not as clear. These graphs can be found in the `graphs` folder. Here is the
+result of the default graph:
+
+![Default PCA graph of the whole dataset]('/graphs/default_PCA.png')
+
+Notice the point corresponding to recipe 11 in the far right of the graph - this point is the recipe which contains no
+sugar mentioned earlier. We can clearly see this is an outlier, especially as it deviates from the rest of the data as
+it is the only recipe to have no sugar in it, though it is still included as a potential recipe.
 
 ## Classifying
 
