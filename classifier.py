@@ -12,34 +12,34 @@ from importer import X_orig_std, y, X_train_std, X_test_std, y_train_std, y_test
 # baseline logistic regression model
 model1 = LogisticRegression()
 # cross validation to evaluate the model with less variance
-scores1 = cross_val_score(model1, X_orig_std, y, cv=5, scoring="accuracy")
+scores1 = cross_val_score(model1, X_train_std, y_train_std, cv=5, scoring="accuracy")
 # show the performance calculations
 print(scores1.mean(), scores1.std(), "LR")
 
 # random forest model
 model2 = RandomForestClassifier(n_estimators=80, random_state=0, class_weight="balanced")
-scores2 = cross_val_score(model2, X_orig_std, y, cv=5, scoring="accuracy")
+scores2 = cross_val_score(model2, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores2.mean(), scores2.std(), "Forest")
 
 # boosting model
 model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estimators=240, learning_rate=0.15,
                                     max_depth=7)
-scores3 = cross_val_score(model3, X_orig_std, y, cv=5, scoring="accuracy")
+scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores3.mean(), scores3.std(), "Boosting")
 
 # KNN model
-model4 = KNeighborsClassifier(n_neighbors=13, weights="distance", algorithm="ball_tree", p=2)
-scores4 = cross_val_score(model4, X_orig_std, y, cv=5, scoring="accuracy")
+model4 = KNeighborsClassifier(n_neighbors=22, weights="distance", algorithm="ball_tree", p=2)
+scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores4.mean(), scores4.std(), "KNN")
 
 # Decision tree model
 model5 = DecisionTreeClassifier()
-scores5 = cross_val_score(model5, X_orig_std, y, cv=5, scoring="accuracy")
+scores5 = cross_val_score(model5, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores5.mean(), scores5.std(), "Tree")
 
 # SVM model
 model6 = svm.SVC()
-scores6 = cross_val_score(model6, X_orig_std, y, cv=5, scoring="accuracy")
+scores6 = cross_val_score(model6, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores6.mean(), scores6.std(), "SVM")
 
 # showing statistics more clearly using predictions and classification reports

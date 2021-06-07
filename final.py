@@ -6,7 +6,7 @@ from importer import X_orig_std, X_jaffa_std, y  # get the full datasets and jaf
 # define our models according to the best performers from classifier.py
 forest_model = RandomForestClassifier(n_estimators=80, class_weight="balanced")
 boost_model = GradientBoostingClassifier(loss="exponential", n_estimators=240, learning_rate=0.15, max_depth=7)
-knn_model = KNeighborsClassifier(n_neighbors=13, weights="distance", algorithm="ball_tree", p=2)
+knn_model = KNeighborsClassifier(n_neighbors=22, weights="distance", algorithm="ball_tree", p=2)
 
 # fit our models to the whole dataset of all cakes and biscuits
 forest_pred_model = forest_model.fit(X_orig_std, y)
