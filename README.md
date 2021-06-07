@@ -149,6 +149,6 @@ would expect - recipes 8 and 9 are firmly in biscuit territory, while recipes 5 
 consensus that they were, in fact, cakes. Interestingly, while recipes 10 and 11 seem like they would be on the edge,
 all the algorithms agreed that they were cakes, perhaps due to the bias towards cakes due to the imbalanced dataset.
 
-With all of these models combined, we have a 72.22% chance across the algorithms that a jaffa cake recipe is considered a cake.
-Even discounting recipe 11 for being outside the set we trained on, we still get a 69.69% chance of classifying a jaffa
+With all of these models combined, we have a 72.2% chance across the algorithms that a jaffa cake recipe is considered a cake.
+Even discounting recipe 11 for being outside the set we trained on, we still get a 69.7% chance of classifying a jaffa
 cake recipe as a cake.
