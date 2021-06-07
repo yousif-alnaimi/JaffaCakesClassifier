@@ -5,6 +5,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
+# optional imports for the graphing script - not necessary by default
 import pandas as pd
 import matplotlib.pyplot as plt
 
