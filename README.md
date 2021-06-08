@@ -24,9 +24,9 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 - Sugar: any string containing the word "sugar"
 - Butter: any string containing the words "butter", "margarine", or "oil"
 - Egg: any string containing the word "egg" (this includes eggs when separated into yolks and whites, and adjusts
-  quantities accordingly)
+  quantities accordingly) - we have used that an egg contains 52ml of egg, split into 22ml of yolk and 30ml of whites
 - Flour: any string containing the words "flour" or "oats"
-- Milk: any string containing the word "milk" (this will include vegan milks like soy, milk solids, and milk derivatives
+- Milk: any string containing the word "milk" (this will include vegan milks like soy and milk derivatives
   like condensed milk, though solids (anything measured in grams) will be ignored, e.g. milk chocolate)
 - Soda: any string containing the phrases "baking powder" or "soda" (Note that, while self-raising flour contains these,
   self-raising flour does not contribute to these categories)
@@ -35,18 +35,25 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 - Syrup: any string containing the words "syrup" or "honey"
 
 The units where then found using regex in the `quantity_finder()` function, then placed into a dictionary for the
-current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup. Should the
-units not be ascertainable, the unit was defaulted to grams (this helps in the case of "a pinch of salt"). In this case,
-recipes where a unit was exclusively denominated in ounces was removed, as they had a high chance of subverting the
-regex detection due to inaccurate use of spaces, and this amounted to a small portion of total results skipped. Note
-that the recorded recipes omit ingredients related to flavouring that do not change the make-up of the cake like nuts,
-fruits, and jams. To filter out recipes like cheesecakes and other such irrelevant cakes (these are not comparable to
-the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour were removed from the list.
+current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup, and will
+convert them using standard conversions to convert them into grams or milliltres as appropriate. While these are not
+100% comparable, as most liquids used will be of similar density to water, which in itself has a density of roughly
+1g/ml, this should be close enough for our purposes. Should theunits not be ascertainable, the unit was defaulted to
+grams (this helps in the case of "a pinch of salt"). In this case, recipes where a unit was exclusively denominated
+in ounces was removed, as they had a high chance of subverting the regex detection due to inconsistent use of spaces,
+and this amounted to a small portion of total results skipped. Note that the recorded recipes omit ingredients
+related to flavouring that, in most cases, do not change whether the recipe is for a cake or biscuit, like nuts, fruits,
+and jams. An exception to this would be ground nuts, which act like flour, though there do not seem to be many recipes
+containing these. To filter out recipes like cheesecakes and other such irrelevant cakes and biscuits (these are not
+comparable to the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour were removed
+from the list.
 
-Finally, this data was written into a csv from the dictionary of the recipe each time, as this means that, in the rare
-event of a crash or failure, progress is not lost (at the time of writing, all errors in reading were removed). These
-can be found in the `csv_tests` and `data` folders. The final csvs had labels added to them manually, as well as manual
-pruning of obviously outlier results (e.g. 75 kg of flour or 600g of salt).
+Finally, this data was written into a csv from the dictionary of the recipe each time a new recipe was fully detected,
+as this means that, in the rare event of a crash or failure, progress is not lost (at the time of writing, the script
+could get through both the cake and biscuit recipe lists without suffering a crash provided the URL does not go outside
+the maximum index). These csvs can be found in the `csv_tests` and `data` folders. The final csvs had labels added to
+them manually, as well as manual pruning of obviously outlier results (e.g. recipes containing 75kg of flour or 600g
+of salt).
 
 ## Importing
 
