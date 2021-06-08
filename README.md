@@ -3,8 +3,8 @@
 ## Introduction
 
 A Python project to accompany my poster submission for the MATH40008 module. This project scrapes biscuit and cake
-recipes from the internet, then does data analysis and classification on the dataset. Ends in a prediction of the class
-of a set of Jaffa Cake recipes.
+recipes from the internet, then does data analysis and classification on the dataset. We end in a prediction of the
+class of a set of Jaffa Cake recipes.
 
 ## Scraping
 
