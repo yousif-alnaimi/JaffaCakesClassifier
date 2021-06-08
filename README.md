@@ -119,8 +119,8 @@ training, then a prediction on the test set with a classification report and con
 in the columns and actual class in the rows - in this case column/row 1 is biscuit and column/row 2 is cake). Comparing
 their means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient boosting,
 and k nearest-neighbour were the best algorithms in this case. In particular, the accuracy row in the classification report
-shows us that the test accuracy and cross validation accuracy were very similar, implying that the chance of overfitting is
-low. The reasons for selection and rejection for each model is summarised in the table below:
+shows us that the test accuracy and cross validation accuracy were very similar, implying that the chance of over-fitting
+is low. The reasons for selection and rejection for each model is summarised in the table below:
 
 | Model       | Status | Reasoning |
 | ----------- | ----------- | ----------- |

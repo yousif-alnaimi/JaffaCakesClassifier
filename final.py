@@ -26,7 +26,7 @@ predict_df = pd.DataFrame(
      "Forest": forest_predictions,
      "Boosting": boost_predictions,
      "KNN": knn_predictions,
-}
+    }
 )
 
 # print the predictions with the recipe numbers
