@@ -231,6 +231,57 @@ recipes 10 and 11, have very high confidence, half of the biscuit detections, re
 both due to the varying classifications given by the algorithms and the probabilities of those detections being
 relatively low.
 
+## Evaluation
+
+The biggest issue encountered during this process was data collection. To find a dataset large enough to get meaningful
+results from, a degree of automation was required. For this, web scraping was required. While this part worked
+flawlessly, the difficulties came in the categorisation of these ingredients. In order to have a limited and
+trainable number of features, some large categories were required, for example the butter category, which contains
+butter, margarine and oil. These may behave slightly differently in baking, however clumping these together helps to
+significantly simplify the training process.
+
+While reading the quantities once they were recognised worked well,
+the lack of detection of some components also contributed some error. An example of this would be a recipe that
+calls ground almonds "almond flour", against one that simply calls them "ground almonds". In the first case, the
+quantity would be added to the dataset under the flour category, however in the second case, it would be missed
+altogether. While this particular example was not very common, with the amount of data processed, a few such cases
+arised. Natural Language Processing could have helped in this regard, and indeed there are some projects found on
+Kaggle that do work on NLP for recipe parsing, however this would have taken a prohibitively long time, and be outside
+the scope of this project.
+
+Another aspect is the quality of the data - these recipes are open for everyone to submit, so
+there is no guarantee on their accuracy or quality. A degree of manual processing helped to eliminate some particularly
+egregious results, as mentioned in the scraping section, however it is highly likely some less obvious errors made
+their way into the dataset. A better curated list may have helped, however I am unaware of any such easily scrapable
+sources.
+
+A large portion of the baking process also involves the method used to bake the ingredients. While this would be
+somewhat difficult to implement, perhaps requiring the use of some more advanced tools like the NLP mentioned earlier,
+it would be beneficial to have some key data points like bake time, preheat time, and baking temperature.
+Perhaps using these data could help distinguish between some of the cases that were more ambiguous, though it is also
+possible that this could produce a lot of noise, as the vastly different sizes between the various recipes in each
+class would also have a significant affect on the baking process, while not having an effect on the class.
+
+In regards to the Jaffa Cake data selection, manual methods were applied, so these recipes were the most accurate of
+the dataset, however the small sample size of 12 was an issue. While some of these recipes break the rules established
+in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to the step
+which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data in an
+attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
+vastly skewing the recipe.
+
+The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
+seeing as it matched up fairly well with our models, I imagine this was done fairly seccessfully. An alternative
+method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
+project[[25]](#25), however this method seemed to work perfectly, so this would likely be unnecessary.
+
+Due to a constraint on time, I could not iterate through as many parameter values as I would have liked, however,
+barring certain important parameters like `n_neighbors` in the KNN model or `max_depth` in the boosting model,
+these had a very limited effect on this dataset, likely due to the relatively small set.
+
+Time taken to run these models was relatively fast, at about 10 seconds maximum for the boosting algorithm - 
+since this project is a one-time analysis, time to run the classification was not optimised, as this was fast
+enough for our purposes.
+
 ## References
 
 <a id="1">[1]</a> 
@@ -327,4 +378,9 @@ Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–
 
 <a id="24">[24]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
-Journal of Machine Learning Research. 2011;12(85):2825–30. 
+Journal of Machine Learning Research. 2011;12(85):2825–30.
+
+<a id="25">[25]</a> 
+Stevance HF. Using Artificial Intelligence to Shed Light on the Star of Biscuits: The Jaffa Cake. arXiv:210316575
+[astro-ph] [Internet]. 2021 Mar 30 [cited 2021 May 28]; Available from: http://arxiv.org/abs/2103.16575
+
