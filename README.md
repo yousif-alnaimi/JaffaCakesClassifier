@@ -57,12 +57,13 @@ of salt).
 
 ## Importing
 
-These datasets are recorded separately into a cake csv and a biscuit csv. These are imported into pandas DataFrames,
-duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then concatenated into one larger
-DataFrame. The next step was to split these into a feature and label set, then to normalise the data in the feature set
-such that the features are proportions of recipes (i.e. the rows sum to one). Then the `train_test_split` occurs to
-give us separate datasets in an 80:20 ratio to give us insight later in the classification step. Then, `StandardScaler`
-was applied to give the classification algorithms more standardised data to work on.
+These datasets are recorded separately into a cake csv and a biscuit csv in the `data` folder. These are imported
+into pandas DataFrames, duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then
+concatenated into one larger DataFrame. The next step was to split these into a feature and label set, then to normalise
+the data in the feature set such that the features are proportions of recipes (i.e. the rows sum to one). Then the
+`train_test_split` occurs to give us separate datasets in an 80:20 ratio to give us insight later in the classification
+step. Then, `StandardScaler` is applied to give the classification algorithms more standardised data to work on,
+as this shifts and scales the data so that the mean becomes 0 and the standard deviation becomes 1.
 
 The Jaffa Cake dataset is also imported in this script, using only the ingredients used in the sponge, and following the
 same category rules as in the initial dataset. Additional rules were required for greater accuracy: where they use
