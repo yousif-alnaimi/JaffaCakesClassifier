@@ -5,7 +5,7 @@ import re
 from fractions import Fraction
 import csv
 
-target_url = "http://allrecipes.co.uk/recipes/biscuit-recipes.aspx?page="
+target_url = "http://allrecipes.co.uk/recipes/cake-recipes.aspx?page="
 metric_list = ["g", "ml", "kg", "l"]  # list of acceptable metric units
 file_name = "csv_tests/cake-recipes.csv"  # file name to write the finished csv to (has to end in ".csv")
 
