@@ -189,7 +189,8 @@ cake. Even discounting recipe 11 for being outside the set we trained on, we sti
 classifying a Jaffa Cake recipe as a cake.
 
 For more insight, we can use the `predict_proba` method to give us the probabilities of each model predicting each
-outcome. Here is the output of this process, again derived from `final.txt`:
+outcome, where `p_cake` refers to the probability of the detection being a cake, and `p_biscuit` refers to the
+probability of the detection being a biscuit. Here is the output of this process, again derived from `final.txt`:
 
 | Recipe No. | Forest p_biscuit | Forest p_cake | Boosting p_biscuit | Boosting p_cake | KNN p_biscuit | KNN p_cake |
 |------------|------------------|---------------|--------------------|-----------------|---------------|------------|
@@ -221,5 +222,11 @@ points we saw in the graphing step. Recipes 7, 8, 10, and 11 are all below the 8
 split. Again, this seems to agree that recipes 5 and 9 are highly likely to be biscuit recipes, though the others have
 room for error.
 
-From this, we can see that Jaffa Cakes are highly likely to be cakes, as while most cake recognitions have very high,
-half of the biscuit detections, recipes 7 and 8, seem uncertain.
+From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
+recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
+both due to the varying classifcations given by the algorithms and the probabilities of those detections being relatively
+low.
+
+## References
+
+
