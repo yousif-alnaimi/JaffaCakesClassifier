@@ -8,7 +8,7 @@ class of a set of Jaffa Cake recipes.
 
 ## Scraping
 
-The main source for the data is from the cake and biscuit sections of [allrecipes.co.uk](http://allrecipes.co.uk). The
+The main source for the data is from the cake and biscuit sections of allrecipes.co.uk[[1]](#1). The
 scraper first finds the second index page of the section (this is because the first page is formatted differently, and
 so cannot be easily scraped). Then, it takes each entry in the page and fetches the recipe link from each one. Within
 each recipe link, the scraper finds every `<li>` tag in the ingredients class on the webpage, then extracts the text and
@@ -24,7 +24,8 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 - Sugar: any string containing the word "sugar"
 - Butter: any string containing the words "butter", "margarine", or "oil"
 - Egg: any string containing the word "egg" (this includes eggs when separated into yolks and whites, and adjusts
-  quantities accordingly) - we have used that an egg contains 52ml of egg, split into 22ml of yolk and 30ml of whites
+  quantities accordingly) - we have used that an egg contains 52ml of egg, split into 22ml of yolk and 30ml of
+  whites[[2]](#2)[[3]](#3)
 - Flour: any string containing the words "flour" or "oats"
 - Milk: any string containing the word "milk" (this will include vegan milks like soy and milk derivatives
   like condensed milk, though solids (anything measured in grams) will be ignored, e.g. milk chocolate)
@@ -38,15 +39,15 @@ The units where then found using regex in the `quantity_finder()` function, then
 current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup, and will
 convert them using standard conversions to convert them into grams or milliltres as appropriate. While these are not
 100% comparable, as most liquids used will be of similar density to water, which in itself has a density of roughly
-1g/ml, this should be close enough for our purposes. Should theunits not be ascertainable, the unit was defaulted to
-grams (this helps in the case of "a pinch of salt"). In this case, recipes where a unit was exclusively denominated
-in ounces was removed, as they had a high chance of subverting the regex detection due to inconsistent use of spaces,
-and this amounted to a small portion of total results skipped. Note that the recorded recipes omit ingredients
-related to flavouring that, in most cases, do not change whether the recipe is for a cake or biscuit, like nuts, fruits,
-and jams. An exception to this would be ground nuts, which act like flour, though there do not seem to be many recipes
-containing these. To filter out recipes like cheesecakes and other such irrelevant cakes and biscuits (these are not
-comparable to the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour were removed
-from the list.
+1g/ml[[4]](#4), this should be close enough for our purposes. Should thevunits not be ascertainable, the unit was
+defaulted to grams (this helps in the case of "a pinch of salt"). In this case, recipes where a unit was exclusively
+denominated in ounces was removed, as they had a high chance of subverting the regex detection due to inconsistent use
+of spaces, and this amounted to a small portion of total results skipped. Note that the recorded recipes omit
+ingredients related to flavouring that, in most cases, do not change whether the recipe is for a cake or biscuit, like
+nuts, fruits, and jams. An exception to this would be ground nuts, which act like flour, though there do not seem to be
+many recipes containing these. To filter out recipes like cheesecakes and other such irrelevant cakes and biscuits
+(these are not comparable to the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour
+were removed from the list.
 
 Finally, this data was written into a csv from the dictionary of the recipe each time a new recipe was fully detected,
 as this means that, in the rare event of a crash or failure, progress is not lost (at the time of writing, the script
@@ -58,7 +59,7 @@ of salt).
 ## Importing
 
 These datasets are recorded separately into a cake csv and a biscuit csv in the `data` folder. These are imported
-into pandas DataFrames, duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then
+into pandas[[5]](#5) DataFrames, duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then
 concatenated into one larger DataFrame. The next step was to split these into a feature and label set, then to normalise
 the data in the feature set such that the features are proportions of recipes (i.e. the rows sum to one). Then the
 `train_test_split` occurs to give us separate datasets in an 80:20 ratio to give us insight later in the classification
@@ -70,21 +71,21 @@ same category rules as in the initial dataset. Additional rules were required fo
 "butter for greasing", one tablespoon (17g) is used, and ground almonds were added to the flour category. These recipes
 were manually extracted from the following websites, in the order that they appear in the csv file:
 
-- https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695
-- https://www.thespruceeats.com/british-jaffa-cakes-recipe-4143259
-- https://marshasbakingaddiction.com/homemade-jaffa-cakes/
-- https://sortedfood.com/jaffacakes
-- https://www.jamieoliver.com/recipes/chocolate-recipes/jaffa-cakes/
-- http://allrecipes.co.uk/recipe/26008/jaffa-cakes.aspx
-- http://allrecipes.co.uk/recipe/43983/the-vegan-dad---jaffa-cakes.aspx
-- https://www.greatbritishchefs.com/recipes/jaffa-orange-cakes-recipe
-- https://www.greatbritishchefs.com/recipes/jaffa-cakes-recipe
-- https://www.waitrose.com/home/recipes/recipe_directory/j/jaffa-cakes.html
-- https://www.radhidevlukia.co/post/jaffa-cakes-chocolate-orange-cakies-cookie-cake
-- https://www.loveoggs.com/recipe/jaffa-cakes/
+1. https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695[[6]](#6)
+2. https://www.thespruceeats.com/british-jaffa-cakes-recipe-4143259[[7]](#7)
+3. https://marshasbakingaddiction.com/homemade-jaffa-cakes/[[8]](#8)
+4. https://sortedfood.com/jaffacakes[[9]](#9)
+5. https://www.jamieoliver.com/recipes/chocolate-recipes/jaffa-cakes/[[10]](#10)
+6. http://allrecipes.co.uk/recipe/26008/jaffa-cakes.aspx[[11]](#11)
+7. http://allrecipes.co.uk/recipe/43983/the-vegan-dad---jaffa-cakes.aspx[[12]](#12)
+8. https://www.greatbritishchefs.com/recipes/jaffa-orange-cakes-recipe[[13]](#13)
+9. https://www.greatbritishchefs.com/recipes/jaffa-cakes-recipe[[14]](#14)
+10. https://www.waitrose.com/home/recipes/recipe_directory/j/jaffa-cakes.html[[15]](#15)
+11. https://www.radhidevlukia.co/post/jaffa-cakes-chocolate-orange-cakies-cookie-cake[[16]](#16)
+12. https://www.loveoggs.com/recipe/jaffa-cakes/[[17]](#17)
 
 Care was taken to only choose recipes of normal sized Jaffa Cakes as opposed to giant and loaf cakes, though vegan
-recipes were allowed through (more on this later). Note that recipe 11 in this list is outside the training set, as it
+recipes were allowed through. Note that recipe 11 in this list is outside the training set, as it
 contains no sugar and uses maple syrup instead, but it has still been included for sake of completion.
 
 ## Graphing
@@ -111,13 +112,15 @@ it is the only recipe to have no sugar in it, though it is still included as a p
 ## Classifying
 
 This step is the crux of the classification problem. A few models were chosen to serve as a basis to see which would be
-best to choose for the final model. The initial selection was logistic regression, random forests, gradient boosting, K
-nearest-neighbours, decision trees, and support vector machines. These models were run in their default settings and
-through a 5-fold cross validation test on the training , then a prediction on the test set with a classification report
-and confusion matrix (a table of predicted class in the columns and actual class in the rows - in this case column/row 1
-is biscuit and column/row 2 is cake). Comparing their means and standard deviations, as well as the reports and
-matrices, it seemed that random forests, gradient boosting, and k nearest-neighbour were the best algorithms in this
-case. The reasons for selection and rejection for each model is summarised in the table below:
+best to choose for the final model. The initial selection was logistic regression[[18]](#18), random forests[[19]](#19),
+gradient boosting[[20]](#20), K nearest-neighbours[[21]](#21), decision trees[[22]](#22), and support vector
+machines[[23]](#23). These models were run in their default settings and through a 5-fold cross validation test on the
+training, then a prediction on the test set with a classification report and confusion matrix (a table of predicted class
+in the columns and actual class in the rows - in this case column/row 1 is biscuit and column/row 2 is cake). Comparing
+their means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient boosting,
+and k nearest-neighbour were the best algorithms in this case. In particular, the accuracy row in the classification report
+shows us that the test accuracy and cross validation accuracy were very similar, implying that the chance of overfitting is
+low. The reasons for selection and rejection for each model is summarised in the table below:
 
 | Model       | Status | Reasoning |
 | ----------- | ----------- | ----------- |
@@ -129,7 +132,7 @@ case. The reasons for selection and rejection for each model is summarised in th
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/)[[1]](#1), were iterated through to maximise the performance,
+the [documentation pages for sklearn](https://scikit-learn.org/)[[2]](#2), were iterated through to maximise the performance,
 while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code used
 (in this case altering the `max_depth` parameter in the boosting algorithm)
 can be found below, as well as in the comments of classifier.py in the KNN graphing section:
@@ -230,6 +233,23 @@ low.
 ## References
 
 <a id="1">[1]</a> 
+Allrecipes UK - Recipes and cooking ideas for British and Irish cooks [Internet]. [cited 2021 Jun 5].
+Available from: http://allrecipes.co.uk/
+
+<a id="2">[2]</a> 
+Egg Types & Labels: A Guide For Choosing The Right Eggs [Internet]. Australian Eggs. 2020 [cited 2021 Jun 6].
+Available from: https://www.australianeggs.org.au/farming/egg-types-and-labels
+
+<a id="3">[3]</a>
+What is the Volume of an Egg? [Internet]. [cited 2021 Jun 6].
+Available from: https://www.howmuchisin.com/produce_converters/volume-of-an-egg
+
+<a id="4">[4]</a> 
+Berry M. Mary Berry’s jaffa cakes recipe - BBC Food [Internet]. [cited 2021 Jun 5].
+Available from: https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695
+
+
+<a id="2">[2]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
 Journal of Machine Learning Research. 2011;12(85):2825–30. 
 
