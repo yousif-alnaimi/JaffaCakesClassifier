@@ -250,8 +250,9 @@ Tanaka M, Girard G, Davis R, Peuto A, Bignell N. Recommended table for the densi
 based on recent experimental reports. Metrologia. 2001 Aug;38(4):301–9. 
 
 <a id="5">[5]</a>
-The pandas development team. pandas-dev/pandas: Pandas [Internet]. Zenodo; 2020.
-Available from: https://doi.org/10.5281/zenodo.3509134
+Reback J, McKinney W, jbrockmendel, Bossche JV den, Augspurger T, Cloud P, et al. pandas-dev/pandas: Pandas 1.2.4
+[Internet]. Zenodo; 2021 [cited 2021 Jun 8]. Available from: https://zenodo.org/record/4681666
+
 
 <a id="6">[6]</a> 
 Berry M. Mary Berry’s jaffa cakes recipe - BBC Food [Internet]. [cited 2021 Jun 5].
@@ -302,24 +303,28 @@ LoveOGGS. Jaffa Cakes [Internet]. Love OGGS®. [cited 2021 Jun 5].
 Available from: https://www.loveoggs.com/recipe/jaffa-cakes/
 
 <a id="18">[18]</a> 
-
+Tolles J, Meurer WJ. Logistic Regression: Relating Patient Characteristics to Outcomes.
+JAMA. 2016 Aug 2;316(5):533. 
 
 <a id="19">[19]</a> 
-
+Ho TK. Random decision forests. In: Proceedings of 3rd International Conference on Document
+Analysis and Recognition. 1995. p. 278–82 vol.1. 
 
 <a id="20">[20]</a>
-
+Friedman JH. Stochastic gradient boosting. Computational Statistics & Data Analysis.
+2002 Feb 28;38(4):367–78. 
 
 <a id="21">[21]</a>
-
+Altman NS. An Introduction to Kernel and Nearest-Neighbor Nonparametric Regression.
+null. 1992 Aug 1;46(3):175–85. 
 
 <a id="22">[22]</a>
-
+Loh W-Y. Classification and regression trees. WIREs Data Mining and Knowledge Discovery.
+2011;1(1):14–23. 
 
 <a id="23">[23]</a>
-
+Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–97. 
 
 <a id="24">[24]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
 Journal of Machine Learning Research. 2011;12(85):2825–30. 
-
