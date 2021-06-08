@@ -12,7 +12,9 @@ The main source for the data is from the cake and biscuit sections of [allrecipe
 scraper first finds the second index page of the section (this is because the first page is formatted differently, and
 so cannot be easily scraped). Then, it takes each entry in the page and fetches the recipe link from each one. Within
 each recipe link, the scraper finds every `<li>` tag in the ingredients class on the webpage, then extracts the text and
-cleans it for later processing.
+cleans it for later processing. Once this has been done for every recipe link in a page, the script moves on to the next
+page by changing the index in the URL. The limit for this url has to be set manually and added to the for loop, and the
+number can be found at the bottom of the page of any of the index pages.
 
 The next step is to classify the data into features using regex (ignoring case). This finds the data and converts the
 units to be ml or g as appropriate. Broad strokes had to be used to prevent the number of features from becoming too
@@ -25,7 +27,7 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
   quantities accordingly)
 - Flour: any string containing the words "flour" or "oats"
 - Milk: any string containing the word "milk" (this will include vegan milks like soy, milk solids, and milk derivatives
-  like condensed milk and milk chocolate)
+  like condensed milk, though solids (anything measured in grams) will be ignored, e.g. milk chocolate)
 - Soda: any string containing the phrases "baking powder" or "soda" (Note that, while self-raising flour contains these,
   self-raising flour does not contribute to these categories)
 - Water: any string containing the word "water"
