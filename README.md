@@ -175,6 +175,22 @@ we get the output below (derived from `final.txt`):
 | 11         | cake    | cake     | cake    |
 | 12         | cake    | cake     | cake    |
 
+We can see that four recipes were detected as biscuit in the random forest model, while three were detected as biscuits
+in the other two models. Comparing this with our earlier PCA graph, we can see that they roughly match up to what we
+would expect - recipes 5 and 9 are firmly in biscuit territory, while recipes 7 and 8 are on the edge. All others had a
+consensus that they were, in fact, cakes. Do note, however, that the `random_state` parameter can change some of these
+results, especially with the random forest. Depending on the randomly chosen number, sometimes recipe 10 may be detected
+as a biscuit, or recipe 7 detected as a cake, as well as other potentially different results, some of which I may not
+have encountered due to the limited number of times I have repeated this experiment. For the sake of consistency and
+reproducibility, I have kept `random_state` at 0.
+
+With all of these models combined, we have a 72.2% chance across the algorithms that a jaffa cake recipe is considered a
+cake. Even discounting recipe 11 for being outside the set we trained on, we still get a 69.7% chance of
+classifying a Jaffa Cake recipe as a cake.
+
+For more insight, we can use the `predict_proba` method to give us the probabilities of each model predicting each
+outcome. Here is the output of this process, again derived from `final.txt`:
+
 | Recipe No. | Forest p_biscuit | Forest p_cake | Boosting p_biscuit | Boosting p_cake | KNN p_biscuit | KNN p_cake |
 |------------|------------------|---------------|--------------------|-----------------|---------------|------------|
 | 1          | 0.0000           | 1.0000        | 0.0000             | 1.0000          | 0.0793        | 0.9207     |
@@ -190,12 +206,20 @@ we get the output below (derived from `final.txt`):
 | 11         | 0.4375           | 0.5625        | 0.1548             | 0.8452          | 0.3719        | 0.6281     |
 | 12         | 0.0875           | 0.9125        | 0.0011             | 0.9989          | 0.0379        | 0.9621     |
 
-We can see that four recipes were detected as biscuit in the random forest model, while three were detected as biscuits
-in the other two models. Comparing this with our earlier PCA graph, we can see that they roughly match up to what we
-would expect - recipes 8 and 9 are firmly in biscuit territory, while recipes 5 and 7 are on the edge. All others had a
-consensus that they were, in fact, cakes. Interestingly, while recipes 10 and 11 seem like they would be on the edge,
-all the algorithms agreed that they were cakes, perhaps due to the bias towards cakes due to the imbalanced dataset.
+Here we can see that, while the random forest may produce the most occurrences of biscuit detections, its
+probabilities for them seem to be weak, with recipe 7 being an exact 50:50 split between the two classes,
+while the cake detections, bar recipe 11, have a confidence of over 85%, roughly the model's performance on the test
+set during the tuning step. The only recipes it has 85% or greater confidence for are recipes 5 and 9, which
+incidentally are the only ones where there is consensus among the algorithms.
 
-With all of these models combined, we have a 72.2% chance across the algorithms that a jaffa cake recipe is considered a cake.
-Even discounting recipe 11 for being outside the set we trained on, we still get a 69.7% chance of classifying a jaffa
-cake recipe as a cake.
+The boosting algorithm seems significantly more confident in its predictions, as only recipes 7 and 11 have less than
+85% confidence, again seeming to agree that recipes 5 and 9 are very likely to be biscuits, while recipe 7 may not be.
+In this case, the algorithm also has very high confidence in recipe 8, differing from the others in this regard.
+
+Finally, the K nearest neighbours algorithm seems the least consifident in its detections, especially on the boundary
+points we saw in the graphing step. Recipes 7, 8, 10, and 11 are all below the 85% threshold, with 8 being especially
+split. Again, this seems to agree that recipes 5 and 9 are highly likely to be biscuit recipes, though the others have
+room for error.
+
+From this, we can see that Jaffa Cakes are highly likely to be cakes, as while most cake recognitions have very high,
+half of the biscuit detections, recipes 7 and 8, seem uncertain.
