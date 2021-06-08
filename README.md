@@ -132,10 +132,10 @@ low. The reasons for selection and rejection for each model is summarised in the
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/)[[2]](#2), were iterated through to maximise the performance,
-while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code used
-(in this case altering the `max_depth` parameter in the boosting algorithm)
-can be found below, as well as in the comments of classifier.py in the KNN graphing section:
+the [documentation pages for sklearn](https://scikit-learn.org/)[[24]](#24), were iterated through to maximise the
+performance, while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code
+used (in this case altering the `max_depth` parameter in the boosting algorithm)
+can be found below, as well as in the comments of `classifier.py` in the KNN graphing section:
 
  ```angular2html
 for i in range(1,15):
@@ -145,12 +145,13 @@ for i in range(1,15):
   print(scores3.mean(), scores3.std(), "Boosting", i)
  ```
  
-Similarly, the resulting graph from collecting the mean performance and standard deviations can be found here:
+The resulting graph from collecting the mean performance and standard deviations for different values of K in the K
+nearest neighbours classification test can be found here:
 
 ![Graph of mean performance and standard deviation of performance against K](graphs/KNN_comparison.png)
 
 Here we can see that K=22 has the highest mean, as well as a middling standard deviation (the differences in
-standard deviation across this graph are very low, so this does not matter too much), and so this was
+standard deviation across this graph are fairly low, so this does not matter too much), and so this was
 chosen as the value for n_neighbours in the final model.
 
 The output of this script can be found in `classifier.txt` in the `text_results` folder.
@@ -227,8 +228,8 @@ room for error.
 
 From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
 recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
-both due to the varying classifcations given by the algorithms and the probabilities of those detections being relatively
-low.
+both due to the varying classifcations given by the algorithms and the probabilities of those detections being
+relatively low.
 
 ## References
 
