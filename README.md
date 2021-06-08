@@ -234,11 +234,11 @@ relatively low.
 ## Evaluation
 
 The biggest issue encountered during this process was data collection. To find a dataset large enough to get meaningful
-results from, a degree of automation was required. For this, web scraping was required. While this part worked
+results from, a degree of automation was required, for which we used web scraping. While this part worked
 flawlessly, the difficulties came in the categorisation of these ingredients. In order to have a limited and
-trainable number of features, some large categories were required, for example the butter category, which contains
-butter, margarine and oil. These may behave slightly differently in baking, however clumping these together helps to
-significantly simplify the training process.
+trainable number of features, a list of categories were required, some of which were quite broad, for example the butter
+category, which contains butter, margarine and oil. These may behave slightly differently in baking, however clumping
+these together helps to significantly simplify the training process.
 
 While reading the quantities once they were recognised worked well,
 the lack of detection of some components also contributed some error. An example of this would be a recipe that
@@ -246,14 +246,14 @@ calls ground almonds "almond flour", against one that simply calls them "ground 
 quantity would be added to the dataset under the flour category, however in the second case, it would be missed
 altogether. While this particular example was not very common, with the amount of data processed, a few such cases
 arose. Natural Language Processing could have helped in this regard, and indeed there are some projects found on
-Kaggle that do work on NLP for recipe parsing, however this would have taken a prohibitively long time, and be outside
-the scope of this project.
+Kaggle that do work on NLP for recipe parsing, however this would have taken a prohibitively long time, and would
+be outside the scope of this project.
 
-Another aspect is the quality of the data - these recipes are open for everyone to submit, so
+Another aspect is the quality of the data - these recipes are open for anyone to submit, so
 there is no guarantee on their accuracy or quality. A degree of manual processing helped to eliminate some particularly
-egregious results, as mentioned in the scraping section, however it is highly likely some less obvious errors made
-their way into the dataset. A better curated list may have helped, however I am unaware of any such easily scrape-able
-sources.
+egregious results, some of which are mentioned in the scraping section, however it is highly likely some less obvious
+errors made their way into the dataset. A better curated list may have helped, however I am unaware of any such easily
+scrape-able sources.
 
 A large portion of the baking process also involves the method used to bake the ingredients. While this would be
 somewhat difficult to implement, perhaps requiring the use of some more advanced tools like the NLP mentioned earlier,
@@ -263,7 +263,8 @@ possible that this could produce a lot of noise, as the vastly different sizes b
 class would also have a significant effect on the baking process, while not having an effect on the class.
 
 With regard to the Jaffa Cake data selection, manual methods were applied, so these recipes were the most accurate of
-the dataset, however the small sample size of 12 was an issue. While some of these recipes break the rules established
+the dataset, however the small sample size of 12 was an issue, and only 11 if you discount recipe 11 (as should be done
+since it is outside the training space). While some of these recipes break the rules established
 in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to the step
 which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data in an
 attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
@@ -291,9 +292,6 @@ pandas[[5]](#5) for DataFrames
 Scikit-learn[[24]](#24) for classification
 
 Matplotlib[[27]](#27) and seaborn[[28]](#28) for graphing
-
-
-
 
 ## References
 
