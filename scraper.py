@@ -5,7 +5,7 @@ import re
 from fractions import Fraction
 import csv
 
-target_url = "http://allrecipes.co.uk/recipes/cake-recipes.aspx?page="
+target_url = "http://allrecipes.co.uk/recipes/biscuit-recipes.aspx?page="
 metric_list = ["g", "ml", "kg", "l"]  # list of acceptable metric units
 file_name = "csv_tests/cake-recipes.csv"  # file name to write the finished csv to (has to end in ".csv")
 
@@ -164,9 +164,12 @@ def classify_ingredients(ingred_list):
             start_dict.update({"flour": new})
 
         elif re.search("milk", i, re.I):
-            # this will include buttermilk and other similar liquid milk equivalents, as well as milk chocolate
-            # and condensed milk
-            quantity = quantity_finder(i)
+            # this will include buttermilk and other similar liquid milk equivalents, but solids
+            # (anything measured in grams) will be excluded
+            if re.search(r'\d{1,4}g', i, re.IGNORECASE):
+                quantity = 0
+            else:
+                quantity = quantity_finder(i)
             if quantity == "fail":
                 failed = True
                 break
