@@ -90,9 +90,9 @@ contains no sugar and uses maple syrup instead, but it has still been included f
 ## Graphing
 
 Doing the same procedure as we did in the import step on the Jaffa Cake set, we can then concatenate this onto our full
-set of data, giving us a dataset with three possible labels: "biscuit", "cake", or "jaffa". The data is then transformed
-by `StandardScaler` which centres the mean to 0 (standard deviation scaling was disabled in this case for a more
-pronounced graph, though the default behaviour is to divide the centred data by the standard deviation). Then, PCA is
+set of data, giving us a dataset with three possible labels: "biscuit", "cake", or "jaffa". The data is then shifted by
+`StandardScaler` so that its mean is 0 (standard deviation scaling was disabled in this case for a more
+pronounced graph, though the default behaviour is to normalise standard deviation to 1 as seen earlier). Then, PCA is
 run on the dataset with labels removed, reducing the number of components to 2 and allowing us to graph it.
 
 The next step was to graph this data, separating them out by label into different colours and marker shapes to give a
