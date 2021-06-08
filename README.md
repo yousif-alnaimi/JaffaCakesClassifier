@@ -3,8 +3,8 @@
 ## Introduction
 
 A Python project to accompany my poster submission for the MATH40008 module. This project scrapes biscuit and cake
-recipes from the internet, then does data analysis and classification on the dataset. Ends in a prediction of the class
-of a set of Jaffa Cake recipes.
+recipes from the internet, then does data analysis and classification on the dataset. We end in a prediction of the
+class of a set of Jaffa Cake recipes.
 
 ## Scraping
 
@@ -12,7 +12,9 @@ The main source for the data is from the cake and biscuit sections of [allrecipe
 scraper first finds the second index page of the section (this is because the first page is formatted differently, and
 so cannot be easily scraped). Then, it takes each entry in the page and fetches the recipe link from each one. Within
 each recipe link, the scraper finds every `<li>` tag in the ingredients class on the webpage, then extracts the text and
-cleans it for later processing.
+cleans it for later processing. Once this has been done for every recipe link in a page, the script moves on to the next
+page by changing the index in the URL. The limit for this url has to be set manually and added to the for loop, and the
+number can be found at the bottom of the page of any of the index pages.
 
 The next step is to classify the data into features using regex (ignoring case). This finds the data and converts the
 units to be ml or g as appropriate. Broad strokes had to be used to prevent the number of features from becoming too
@@ -22,10 +24,10 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 - Sugar: any string containing the word "sugar"
 - Butter: any string containing the words "butter", "margarine", or "oil"
 - Egg: any string containing the word "egg" (this includes eggs when separated into yolks and whites, and adjusts
-  quantities accordingly)
+  quantities accordingly) - we have used that an egg contains 52ml of egg, split into 22ml of yolk and 30ml of whites
 - Flour: any string containing the words "flour" or "oats"
-- Milk: any string containing the word "milk" (this will include vegan milks like soy, milk solids, and milk derivatives
-  like condensed milk and milk chocolate)
+- Milk: any string containing the word "milk" (this will include vegan milks like soy and milk derivatives
+  like condensed milk, though solids (anything measured in grams) will be ignored, e.g. milk chocolate)
 - Soda: any string containing the phrases "baking powder" or "soda" (Note that, while self-raising flour contains these,
   self-raising flour does not contribute to these categories)
 - Water: any string containing the word "water"
@@ -33,27 +35,35 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 - Syrup: any string containing the words "syrup" or "honey"
 
 The units where then found using regex in the `quantity_finder()` function, then placed into a dictionary for the
-current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup. Should the
-units not be ascertainable, the unit was defaulted to grams (this helps in the case of "a pinch of salt"). In this case,
-recipes where a unit was exclusively denominated in ounces was removed, as they had a high chance of subverting the
-regex detection due to inaccurate use of spaces, and this amounted to a small portion of total results skipped. Note
-that the recorded recipes omit ingredients related to flavouring that do not change the make-up of the cake like nuts,
-fruits, and jams. To filter out recipes like cheesecakes and other such irrelevant cakes (these are not comparable to
-the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour were removed from the list.
+current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup, and will
+convert them using standard conversions to convert them into grams or milliltres as appropriate. While these are not
+100% comparable, as most liquids used will be of similar density to water, which in itself has a density of roughly
+1g/ml, this should be close enough for our purposes. Should theunits not be ascertainable, the unit was defaulted to
+grams (this helps in the case of "a pinch of salt"). In this case, recipes where a unit was exclusively denominated
+in ounces was removed, as they had a high chance of subverting the regex detection due to inconsistent use of spaces,
+and this amounted to a small portion of total results skipped. Note that the recorded recipes omit ingredients
+related to flavouring that, in most cases, do not change whether the recipe is for a cake or biscuit, like nuts, fruits,
+and jams. An exception to this would be ground nuts, which act like flour, though there do not seem to be many recipes
+containing these. To filter out recipes like cheesecakes and other such irrelevant cakes and biscuits (these are not
+comparable to the sponge in a Jaffa Cake), recipes using less than 50 grams of either sugar or flour were removed
+from the list.
 
-Finally, this data was written into a csv from the dictionary of the recipe each time, as this means that, in the rare
-event of a crash or failure, progress is not lost (at the time of writing, all errors in reading were removed). These
-can be found in the `csv_tests` and `data` folders. The final csvs had labels added to them manually, as well as manual
-pruning of obviously outlier results (e.g. 75 kg of flour or 600g of salt).
+Finally, this data was written into a csv from the dictionary of the recipe each time a new recipe was fully detected,
+as this means that, in the rare event of a crash or failure, progress is not lost (at the time of writing, the script
+could get through both the cake and biscuit recipe lists without suffering a crash provided the URL does not go outside
+the maximum index). These csvs can be found in the `csv_tests` and `data` folders. The final csvs had labels added to
+them manually, as well as manual pruning of obviously outlier results (e.g. recipes containing 75kg of flour or 600g
+of salt).
 
 ## Importing
 
-These datasets are recorded separately into a cake csv and a biscuit csv. These are imported into pandas DataFrames,
-duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then concatenated into one larger
-DataFrame. The next step was to split these into a feature and label set, then to normalise the data in the feature set
-such that the features are proportions of recipes (i.e. the rows sum to one). Then the `train_test_split` occurs to
-give us separate datasets in an 80:20 ratio to give us insight later in the classification step. Then, `StandardScaler`
-was applied to give the classification algorithms more standardised data to work on.
+These datasets are recorded separately into a cake csv and a biscuit csv in the `data` folder. These are imported
+into pandas DataFrames, duplicates removed from each, leaving 1479 biscuit recipes and 2804 cake recipes, then
+concatenated into one larger DataFrame. The next step was to split these into a feature and label set, then to normalise
+the data in the feature set such that the features are proportions of recipes (i.e. the rows sum to one). Then the
+`train_test_split` occurs to give us separate datasets in an 80:20 ratio to give us insight later in the classification
+step. Then, `StandardScaler` is applied to give the classification algorithms more standardised data to work on,
+as this shifts and scales the data so that the mean becomes 0 and the standard deviation becomes 1.
 
 The Jaffa Cake dataset is also imported in this script, using only the ingredients used in the sponge, and following the
 same category rules as in the initial dataset. Additional rules were required for greater accuracy: where they use
