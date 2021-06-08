@@ -279,8 +279,21 @@ barring certain important parameters like `n_neighbors` in the KNN model or `max
 these had a very limited effect on this dataset, likely due to the relatively small set.
 
 Time taken to run these models was relatively fast, at about 10 seconds maximum for the boosting algorithm - 
-since this project is a one-time analysis, time to run the classification was not optimised, as this was fast
+since this project is a one-time analysis, time to run the classification was not optimised as this was fast
 enough for our purposes.
+
+## Modules Used
+
+BeautifulSoup[[26]](#26) for scraping
+
+pandas[[5]](#5) for DataFrames
+
+Scikit-learn[[24]](#24) for classification
+
+Matplotlib[[27]](#27) and seaborn[[28]](#28) for graphing
+
+
+
 
 ## References
 
@@ -303,7 +316,6 @@ based on recent experimental reports. Metrologia. 2001 Aug;38(4):301–9.
 <a id="5">[5]</a>
 Reback J, McKinney W, jbrockmendel, Bossche JV den, Augspurger T, Cloud P, et al. pandas-dev/pandas: Pandas 1.2.4
 [Internet]. Zenodo; 2021 [cited 2021 Jun 8]. Available from: https://zenodo.org/record/4681666
-
 
 <a id="6">[6]</a> 
 Berry M. Mary Berry’s jaffa cakes recipe - BBC Food [Internet]. [cited 2021 Jun 5].
@@ -384,3 +396,14 @@ Journal of Machine Learning Research. 2011;12(85):2825–30.
 Stevance HF. Using Artificial Intelligence to Shed Light on the Star of Biscuits: The Jaffa Cake. arXiv:210316575
 [astro-ph] [Internet]. 2021 Mar 30 [cited 2021 May 28]; Available from: http://arxiv.org/abs/2103.16575
 
+<a id="26">[26]</a> 
+Richardson L. Beautiful soup documentation. [Internet]. 2007 Apr;
+Available from: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+<a id="27">[27]</a>
+Hunter JD. Matplotlib: A 2D graphics environment.
+Computing in Science & Engineering. 2007;9(3):90–5. 
+
+<a id="28">[28]</a>
+Waskom ML. seaborn: statistical data visualization.
+Journal of Open Source Software. 2021;6(60):3021. 
