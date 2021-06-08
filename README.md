@@ -129,7 +129,7 @@ case. The reasons for selection and rejection for each model is summarised in th
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/), were iterated through to maximise the performance,
+the [documentation pages for sklearn](https://scikit-learn.org/)[[1]](#1), were iterated through to maximise the performance,
 while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code used
 (in this case altering the `max_depth` parameter in the boosting algorithm)
 can be found below, as well as in the comments of classifier.py in the KNN graphing section:
@@ -229,4 +229,7 @@ low.
 
 ## References
 
+<a id="1">[1]</a> 
+Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
+Journal of Machine Learning Research. 2011;12(85):2825–30. 
 
