@@ -245,12 +245,70 @@ Available from: https://www.australianeggs.org.au/farming/egg-types-and-labels
 What is the Volume of an Egg? [Internet]. [cited 2021 Jun 6].
 Available from: https://www.howmuchisin.com/produce_converters/volume-of-an-egg
 
-<a id="4">[4]</a> 
+<a id="4">[4]</a>
+Tanaka M, Girard G, Davis R, Peuto A, Bignell N. Recommended table for the density of water between 0 C and 40 C
+based on recent experimental reports. Metrologia. 2001 Aug;38(4):301–9. 
+
+<a id="5">[5]</a>
+The pandas development team. pandas-dev/pandas: Pandas [Internet]. Zenodo; 2020.
+Available from: https://doi.org/10.5281/zenodo.3509134
+
+<a id="6">[6]</a> 
 Berry M. Mary Berry’s jaffa cakes recipe - BBC Food [Internet]. [cited 2021 Jun 5].
 Available from: https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695
 
+<a id="7">[7]</a> 
 
-<a id="2">[2]</a> 
+
+<a id="8">[8]</a> 
+
+
+<a id="9">[9]</a> 
+
+
+<a id="10">[10]</a> 
+
+
+<a id="11">[11]</a> 
+
+
+<a id="12">[12]</a> 
+
+
+<a id="13">[13]</a> 
+
+
+<a id="14">[14]</a> 
+
+
+<a id="15">[15]</a> 
+
+
+<a id="16">[16]</a> 
+
+
+<a id="17">[17]</a> 
+
+
+<a id="18">[18]</a> 
+
+
+<a id="19">[19]</a> 
+
+
+<a id="20">[20]</a>
+
+
+<a id="21">[21]</a>
+
+
+<a id="22">[22]</a>
+
+
+<a id="23">[23]</a>
+
+
+<a id="24">[24]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
 Journal of Machine Learning Research. 2011;12(85):2825–30. 
 
