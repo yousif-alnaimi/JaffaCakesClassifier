@@ -222,14 +222,15 @@ The boosting algorithm seems significantly more confident in its predictions, as
 In this case, the algorithm also has very high confidence in recipe 8, differing from the others in this regard.
 
 Finally, the K nearest neighbours algorithm seems the least confident in its detections, especially on the boundary
-points we saw in the graphing step. Recipes 7, 8, 10, and 11 are all below the 85% threshold, with 8 being especially
-split. Again, this seems to agree that recipes 5 and 9 are highly likely to be biscuit recipes, though the others have
-room for error.
+points we saw in the graphing step. Recipes 7, 8, 10, and 11 are all below the 85% threshold, with recipes 7 and 8 being
+especially split. Again, this seems to agree that recipes 5 and 9 are highly likely to be biscuit recipes, though the
+others have room for error.
 
 From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
 recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
 both due to the varying classifications given by the algorithms, and the probabilities of those detections being
-relatively low.
+relatively low. We can see this visually too in the PCA graph, where even the jaffa cake dataset seems to have a
+skew to the cake side of the graph.
 
 ## Evaluation
 
