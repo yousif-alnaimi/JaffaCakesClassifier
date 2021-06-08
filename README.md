@@ -71,18 +71,18 @@ same category rules as in the initial dataset. Additional rules were required fo
 "butter for greasing", one tablespoon (17g) is used, and ground almonds were added to the flour category. These recipes
 were manually extracted from the following websites, in the order that they appear in the csv file:
 
-1. https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695[[6]](#6)
-2. https://www.thespruceeats.com/british-jaffa-cakes-recipe-4143259[[7]](#7)
-3. https://marshasbakingaddiction.com/homemade-jaffa-cakes/[[8]](#8)
-4. https://sortedfood.com/jaffacakes[[9]](#9)
-5. https://www.jamieoliver.com/recipes/chocolate-recipes/jaffa-cakes/[[10]](#10)
-6. http://allrecipes.co.uk/recipe/26008/jaffa-cakes.aspx[[11]](#11)
-7. http://allrecipes.co.uk/recipe/43983/the-vegan-dad---jaffa-cakes.aspx[[12]](#12)
-8. https://www.greatbritishchefs.com/recipes/jaffa-orange-cakes-recipe[[13]](#13)
-9. https://www.greatbritishchefs.com/recipes/jaffa-cakes-recipe[[14]](#14)
-10. https://www.waitrose.com/home/recipes/recipe_directory/j/jaffa-cakes.html[[15]](#15)
-11. https://www.radhidevlukia.co/post/jaffa-cakes-chocolate-orange-cakies-cookie-cake[[16]](#16)
-12. https://www.loveoggs.com/recipe/jaffa-cakes/[[17]](#17)
+1. https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695 [[6]](#6)
+2. https://www.thespruceeats.com/british-jaffa-cakes-recipe-4143259 [[7]](#7)
+3. https://marshasbakingaddiction.com/homemade-jaffa-cakes/ [[8]](#8)
+4. https://sortedfood.com/jaffacakes [[9]](#9)
+5. https://www.jamieoliver.com/recipes/chocolate-recipes/jaffa-cakes/ [[10]](#10)
+6. http://allrecipes.co.uk/recipe/26008/jaffa-cakes.aspx [[11]](#11)
+7. http://allrecipes.co.uk/recipe/43983/the-vegan-dad---jaffa-cakes.aspx [[12]](#12)
+8. https://www.greatbritishchefs.com/recipes/jaffa-orange-cakes-recipe [[13]](#13)
+9. https://www.greatbritishchefs.com/recipes/jaffa-cakes-recipe [[14]](#14)
+10. https://www.waitrose.com/home/recipes/recipe_directory/j/jaffa-cakes.html [[15]](#15)
+11. https://www.radhidevlukia.co/post/jaffa-cakes-chocolate-orange-cakies-cookie-cake [[16]](#16)
+12. https://www.loveoggs.com/recipe/jaffa-cakes/ [[17]](#17)
 
 Care was taken to only choose recipes of normal sized Jaffa Cakes as opposed to giant and loaf cakes, though vegan
 recipes were allowed through. Note that recipe 11 in this list is outside the training set, as it
@@ -258,37 +258,48 @@ Berry M. Mary Berry’s jaffa cakes recipe - BBC Food [Internet]. [cited 2021 Ju
 Available from: https://www.bbc.co.uk/food/recipes/mary_berrys_jaffa_cakes_58695
 
 <a id="7">[7]</a> 
-
+Lemm E. These Jaffa Cakes are Tastier Than Any Biscuit You Can Buy [Internet]. The Spruce Eats.
+[cited 2021 Jun 5]. Available from: https://www.thespruceeats.com/british-jaffa-cakes-recipe-4143259
 
 <a id="8">[8]</a> 
-
+Cook M. Homemade Jaffa Cakes [Internet]. Marsha’s Baking Addiction. 2016 [cited 2021 Jun 5].
+Available from: https://marshasbakingaddiction.com/homemade-jaffa-cakes/
 
 <a id="9">[9]</a> 
-
+Sorted Food. Jaffa Cakes [Internet]. SORTEDfood. [cited 2021 Jun 5].
+Available from: https://sortedfood.com/recipe/jaffacakes
 
 <a id="10">[10]</a> 
-
+Oliver J. Jaffa cakes | Chocolate recipes | Jamie magazine recipes [Internet]. Jamie Oliver. [cited 2021 Jun 5].
+Available from: https://www.jamieoliver.com/recipes/chocolate-recipes/jaffa-cakes/
 
 <a id="11">[11]</a> 
-
+CookWithAnna. Jaffa cakes [Internet]. http://allrecipes.co.uk. [cited 2021 Jun 5].
+Available from: http://allrecipes.co.uk/recipe/26008/jaffa-cakes.aspx
 
 <a id="12">[12]</a> 
-
+Evans D. Vegan Jaffa cakes recipe - All recipes UK [Internet]. [cited 2021 Jun 5].
+Available from: http://allrecipes.co.uk/recipe/43983/the-vegan-dad---jaffa-cakes.aspx
 
 <a id="13">[13]</a> 
-
+Doran K. Orange Jaffa Cake Recipe - Great British Chefs [Internet]. [cited 2021 Jun 5].
+Available from: https://www.greatbritishchefs.com/recipes/jaffa-orange-cakes-recipe
 
 <a id="14">[14]</a> 
-
+Wareing M. Jaffa Cake Recipe - Great British Chefs [Internet]. [cited 2021 Jun 5].
+Available from: https://www.greatbritishchefs.com/recipes/jaffa-cakes-recipe
 
 <a id="15">[15]</a> 
-
+Waitrose. Jaffa cakes [Internet]. [cited 2021 Jun 5].
+Available from: https://www.waitrose.com/home/recipes/recipe_directory/j/jaffa-cakes.html
 
 <a id="16">[16]</a> 
-
+Devlukia R. Jaffa Cakes - Chocolate Orange cakies (cookie/cake) [Internet]. Radhi. 2021 [cited 2021 Jun 5].
+Available from: https://www.radhidevlukia.co/post/jaffa-cakes-chocolate-orange-cakies-cookie-cake
 
 <a id="17">[17]</a> 
-
+LoveOGGS. Jaffa Cakes [Internet]. Love OGGS®. [cited 2021 Jun 5].
+Available from: https://www.loveoggs.com/recipe/jaffa-cakes/
 
 <a id="18">[18]</a> 
 
