@@ -156,7 +156,7 @@ chosen as the value for n_neighbours in the final model.
 
 The output of this script can be found in `classifier.txt` in the `text_results` folder.
 
-## Final Classification
+## Final Classification and Conclusion
 
 Now we reach the goal of the project - are Jaffa Cakes biscuits or cakes?
 
