@@ -37,9 +37,9 @@ the other, the latter mention is ignored (e.g. salted butter would be classified
 
 The units where then found using regex in the `quantity_finder()` function, then placed into a dictionary for the
 current recipe. This could find units denominated in g, ml, l, kg, oz, lb, tsp, tbsp, dessertspoon, and cup, and will
-convert them using standard conversions to convert them into grams or milliltres as appropriate. While these are not
+convert them using standard conversions to convert them into grams or millilitres as appropriate. While these are not
 100% comparable, as most liquids used will be of similar density to water, which in itself has a density of roughly
-1g/ml[[4]](#4), this should be close enough for our purposes. Should thevunits not be ascertainable, the unit was
+1g/ml[[4]](#4), this should be close enough for our purposes. Should the units not be ascertainable, the unit was
 defaulted to grams (this helps in the case of "a pinch of salt"). In this case, recipes where a unit was exclusively
 denominated in ounces was removed, as they had a high chance of subverting the regex detection due to inconsistent use
 of spaces, and this amounted to a small portion of total results skipped. Note that the recorded recipes omit
@@ -221,14 +221,14 @@ The boosting algorithm seems significantly more confident in its predictions, as
 85% confidence, again seeming to agree that recipes 5 and 9 are very likely to be biscuits, while recipe 7 may not be.
 In this case, the algorithm also has very high confidence in recipe 8, differing from the others in this regard.
 
-Finally, the K nearest neighbours algorithm seems the least consifident in its detections, especially on the boundary
+Finally, the K nearest neighbours algorithm seems the least confident in its detections, especially on the boundary
 points we saw in the graphing step. Recipes 7, 8, 10, and 11 are all below the 85% threshold, with 8 being especially
 split. Again, this seems to agree that recipes 5 and 9 are highly likely to be biscuit recipes, though the others have
 room for error.
 
 From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
 recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
-both due to the varying classifcations given by the algorithms and the probabilities of those detections being
+both due to the varying classifications given by the algorithms and the probabilities of those detections being
 relatively low.
 
 ## References
