@@ -115,4 +115,4 @@ dmypy.json
 .pyre/
 
 # Extra
-csv_tests/cake-recipes.csv
+csv_tests/
