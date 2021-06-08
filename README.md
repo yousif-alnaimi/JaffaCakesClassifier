@@ -228,7 +228,7 @@ room for error.
 
 From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
 recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
-both due to the varying classifications given by the algorithms and the probabilities of those detections being
+both due to the varying classifications given by the algorithms, and the probabilities of those detections being
 relatively low.
 
 ## Evaluation
@@ -245,14 +245,14 @@ the lack of detection of some components also contributed some error. An example
 calls ground almonds "almond flour", against one that simply calls them "ground almonds". In the first case, the
 quantity would be added to the dataset under the flour category, however in the second case, it would be missed
 altogether. While this particular example was not very common, with the amount of data processed, a few such cases
-arised. Natural Language Processing could have helped in this regard, and indeed there are some projects found on
+arose. Natural Language Processing could have helped in this regard, and indeed there are some projects found on
 Kaggle that do work on NLP for recipe parsing, however this would have taken a prohibitively long time, and be outside
 the scope of this project.
 
 Another aspect is the quality of the data - these recipes are open for everyone to submit, so
 there is no guarantee on their accuracy or quality. A degree of manual processing helped to eliminate some particularly
 egregious results, as mentioned in the scraping section, however it is highly likely some less obvious errors made
-their way into the dataset. A better curated list may have helped, however I am unaware of any such easily scrapable
+their way into the dataset. A better curated list may have helped, however I am unaware of any such easily scrape-able
 sources.
 
 A large portion of the baking process also involves the method used to bake the ingredients. While this would be
@@ -260,9 +260,9 @@ somewhat difficult to implement, perhaps requiring the use of some more advanced
 it would be beneficial to have some key data points like bake time, preheat time, and baking temperature.
 Perhaps using these data could help distinguish between some of the cases that were more ambiguous, though it is also
 possible that this could produce a lot of noise, as the vastly different sizes between the various recipes in each
-class would also have a significant affect on the baking process, while not having an effect on the class.
+class would also have a significant effect on the baking process, while not having an effect on the class.
 
-In regards to the Jaffa Cake data selection, manual methods were applied, so these recipes were the most accurate of
+With regard to the Jaffa Cake data selection, manual methods were applied, so these recipes were the most accurate of
 the dataset, however the small sample size of 12 was an issue. While some of these recipes break the rules established
 in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to the step
 which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data in an
@@ -270,7 +270,7 @@ attempt to reduce false detections, as there was a chance a unit was missed and 
 vastly skewing the recipe.
 
 The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
-seeing as it matched up fairly well with our models, I imagine this was done fairly seccessfully. An alternative
+seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. An alternative
 method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
 project[[25]](#25), however this method seemed to work perfectly, so this would likely be unnecessary.
 
