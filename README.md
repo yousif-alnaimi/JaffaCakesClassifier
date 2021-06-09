@@ -95,7 +95,9 @@ set of data, giving us a dataset with three possible labels: "biscuit", "cake", 
 `StandardScaler` so that its mean is 0 (standard deviation scaling was disabled in this case for a more
 pronounced graph, though the default behaviour is to normalise standard deviation to 1 as seen earlier). Then,
 Principal Component Analysis[[18]](#18) is run on the dataset with labels removed, reducing the number of components to
-2 and allowing us to graph it.
+2 and allowing us to graph it. In this case, the PCA was fairly informative, as `pca.explained_variance_ratio_` showed
+that about 56% of the variation is shown in the first two principal components. While not perfect, this was still
+sufficient for graphing purposes.
 
 The next step was to graph this data, separating them out by label into different colours and marker shapes to give a
 graphical view of the data split. The Jaffa Cake points are then labelled with their recipe number (the row in which
