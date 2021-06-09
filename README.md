@@ -93,8 +93,9 @@ contains no sugar and uses maple syrup instead, but it has still been included f
 Doing the same procedure as we did in the import step on the Jaffa Cake set, we can then concatenate this onto our full
 set of data, giving us a dataset with three possible labels: "biscuit", "cake", or "jaffa". The data is then shifted by
 `StandardScaler` so that its mean is 0 (standard deviation scaling was disabled in this case for a more
-pronounced graph, though the default behaviour is to normalise standard deviation to 1 as seen earlier). Then, PCA is
-run on the dataset with labels removed, reducing the number of components to 2 and allowing us to graph it.
+pronounced graph, though the default behaviour is to normalise standard deviation to 1 as seen earlier). Then,
+Principal Component Analysis[[18]](#18) is run on the dataset with labels removed, reducing the number of components to
+2 and allowing us to graph it.
 
 The next step was to graph this data, separating them out by label into different colours and marker shapes to give a
 graphical view of the data split. The Jaffa Cake points are then labelled with their recipe number (the row in which
@@ -112,9 +113,9 @@ it is the only recipe to have no sugar in it, though it is still included as a p
 ## Classifying
 
 This step is the crux of the classification problem. A few models were chosen to serve as a basis to see which would be
-best to choose for the final model. The initial selection was logistic regression[[18]](#18), random forests[[19]](#19),
-gradient boosting[[20]](#20), K nearest-neighbours[[21]](#21), decision trees[[22]](#22), and support vector
-machines[[23]](#23). These models were run in their default settings and through a 5-fold cross validation test on the
+best to choose for the final model. The initial selection was logistic regression[[19]](#19), random forests[[20]](#20),
+gradient boosting[[21]](#21), K nearest-neighbours[[22]](#22), decision trees[[23]](#23), and support vector
+machines[[24]](#24). These models were run in their default settings and through a 5-fold cross validation test on the
 training, then a prediction on the test set with a classification report and confusion matrix (a table of predicted class
 in the columns and actual class in the rows - in this case column/row 1 is biscuit and column/row 2 is cake). Comparing
 their means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient boosting,
@@ -132,7 +133,7 @@ is low. The reasons for selection and rejection for each model is summarised in 
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/)[[24]](#24), were iterated through to maximise the
+the [documentation pages for sklearn](https://scikit-learn.org/)[[25]](#25), were iterated through to maximise the
 performance, while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code
 used (in this case altering the `max_depth` parameter in the boosting algorithm)
 can be found below, as well as in the comments of `classifier.py` in the KNN graphing section:
@@ -274,7 +275,7 @@ vastly skewing the recipe.
 The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
 seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. An alternative
 method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
-project[[25]](#25), however this method seemed to work perfectly, so this would likely be unnecessary.
+project[[26]](#26), however this method seemed to work perfectly, so this would likely be unnecessary.
 
 Due to a constraint on time, I could not iterate through as many parameter values as I would have liked, however,
 barring certain important parameters like `n_neighbors` in the KNN model or `max_depth` in the boosting model,
@@ -286,13 +287,13 @@ enough for our purposes.
 
 ## Modules Used
 
-BeautifulSoup[[26]](#26) for scraping
+BeautifulSoup[[27]](#27) for scraping
 
 pandas[[5]](#5) for DataFrames
 
-Scikit-learn[[24]](#24) for classification
+Scikit-learn[[25]](#25) for classification
 
-Matplotlib[[27]](#27) and seaborn[[28]](#28) for graphing
+Matplotlib[[28]](#28) and seaborn[[29]](#29) for graphing
 
 ## References
 
@@ -365,44 +366,48 @@ LoveOGGS. Jaffa Cakes [Internet]. Love OGGS®. [cited 2021 Jun 5].
 Available from: https://www.loveoggs.com/recipe/jaffa-cakes/
 
 <a id="18">[18]</a> 
+Wold S, Esbensen K, Geladi P. Principal component analysis.
+Chemometrics and Intelligent Laboratory Systems. 1987 Aug 1;2(1):37–52. 
+
+<a id="19">[19]</a> 
 Tolles J, Meurer WJ. Logistic Regression: Relating Patient Characteristics to Outcomes.
 JAMA. 2016 Aug 2;316(5):533. 
 
-<a id="19">[19]</a> 
+<a id="20">[20]</a> 
 Ho TK. Random decision forests. In: Proceedings of 3rd International Conference on Document
 Analysis and Recognition. 1995. p. 278–82 vol.1. 
 
-<a id="20">[20]</a>
+<a id="21">[21]</a>
 Friedman JH. Stochastic gradient boosting. Computational Statistics & Data Analysis.
 2002 Feb 28;38(4):367–78. 
 
-<a id="21">[21]</a>
+<a id="22">[22]</a>
 Altman NS. An Introduction to Kernel and Nearest-Neighbor Nonparametric Regression.
 null. 1992 Aug 1;46(3):175–85. 
 
-<a id="22">[22]</a>
+<a id="23">[23]</a>
 Loh W-Y. Classification and regression trees. WIREs Data Mining and Knowledge Discovery.
 2011;1(1):14–23. 
 
-<a id="23">[23]</a>
+<a id="24">[24]</a>
 Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–97. 
 
-<a id="24">[24]</a> 
+<a id="25">[25]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
 Journal of Machine Learning Research. 2011;12(85):2825–30.
 
-<a id="25">[25]</a> 
+<a id="26">[26]</a> 
 Stevance HF. Using Artificial Intelligence to Shed Light on the Star of Biscuits: The Jaffa Cake. arXiv:210316575
 [astro-ph] [Internet]. 2021 Mar 30 [cited 2021 May 28]; Available from: http://arxiv.org/abs/2103.16575
 
-<a id="26">[26]</a> 
+<a id="27">[27]</a> 
 Richardson L. Beautiful soup documentation. [Internet]. 2007 Apr;
 Available from: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
-<a id="27">[27]</a>
+<a id="28">[28]</a>
 Hunter JD. Matplotlib: A 2D graphics environment.
 Computing in Science & Engineering. 2007;9(3):90–5. 
 
-<a id="28">[28]</a>
+<a id="29">[29]</a>
 Waskom ML. seaborn: statistical data visualization.
 Journal of Open Source Software. 2021;6(60):3021. 
