@@ -9,6 +9,10 @@ from importer import X, df_jaffa, y  # take the pre-processed dataset from the c
 # add a label for jaffa cake to make keying in later easier
 jaffa_label = ["jaffa" for i in range(len(df_jaffa["sugar"]))]
 df_jaffa["label"] = jaffa_label
+
+# drop recipe 11 - disabled by default
+# df_jaffa = df_jaffa.drop(df_jaffa.index[[10]])
+
 # get the list of recipe columns - these will be our features (once the label column is removed)
 feature_cols = list(df_jaffa.columns.values)
 feature_cols.remove('label')
