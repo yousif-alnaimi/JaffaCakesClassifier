@@ -30,11 +30,11 @@ model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estima
 scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores3.mean(), scores3.std(), "Boosting")
 
-# # KNN model performance grapher with respect to k - disabled by default as graph is already obtained
-# # initialise list of data for each iteration
+# KNN model performance grapher with respect to k - disabled by default as graph is already obtained
+# initialise list of data for each iteration
 # perf_list = []
 # # for loop to iterate through n_neighbours (k) from 1 to 100, then add to a list of tuples
-# for i in range(1, 51):
+# for i in range(3, 51):
 #       model4 = KNeighborsClassifier(n_neighbors=i, weights="distance", algorithm="ball_tree", p=2)
 #       scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
 #       perf_list.append((scores4.mean(), scores4.std(), i))
