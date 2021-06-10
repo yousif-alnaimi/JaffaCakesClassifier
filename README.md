@@ -276,7 +276,9 @@ in an attempt to reduce false detections, as there was a chance a unit was misse
 vastly skewing the recipe.
 
 The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
-seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. An alternative
+seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. Even though reduction
+to 2 components only maintained about 56% of the variation of the dataset, since this part was only to visualise and
+not to train an algorithm on, this was sufficient for our purposes. An alternative
 method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
 project[[26]](#26), however this method seemed to work perfectly, so this would likely be unnecessary.
 
