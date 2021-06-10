@@ -86,7 +86,8 @@ were manually extracted from the following websites, in the order that they appe
 
 Care was taken to only choose recipes of normal sized Jaffa Cakes as opposed to giant and loaf cakes, though vegan
 recipes were allowed through. Note that recipe 11 in this list is outside the training set, as it
-contains no sugar and uses maple syrup instead, but it has still been included for sake of completion.
+contains no sugar and uses maple syrup instead, but it has still been included for sake of completion, though it was
+ommitted in the analysis in the poster.
 
 ## Graphing
 
@@ -268,14 +269,16 @@ class would also have a significant effect on the baking process, while not havi
 
 With regard to the Jaffa Cake data selection, manual methods were applied, so these recipes were the most accurate of
 the dataset, however the small sample size of 12 was an issue, and only 11 if you discount recipe 11 (as should be done
-since it is outside the training space). While some of these recipes break the rules established
-in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to the step
-which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data in an
-attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
+since it is outside the training space, and as was done in the poster). While some of these recipes break the rules
+established in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to
+the step which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data
+in an attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
 vastly skewing the recipe.
 
 The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
-seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. An alternative
+seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. Even though reduction
+to 2 components only maintained about 56% of the variation of the dataset, since this part was only to visualise and
+not to train an algorithm on, this was sufficient for our purposes. An alternative
 method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
 project[[26]](#26), however this method seemed to work perfectly, so this would likely be unnecessary.
 
