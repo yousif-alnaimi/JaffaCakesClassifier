@@ -30,9 +30,11 @@ y_for_graph = pd.concat([y, y_jaffa_for_graph])
 sc = StandardScaler(with_std=False)  # disables scaling of standard deviation to 1 to produce a more pronounced graph
 X_std = sc.fit_transform(X_for_graph)
 # initialise PCA method and fit the dataset to it
-pca = decomposition.PCA(n_components=2, svd_solver="full")
+pca = decomposition.PCA(n_components=9)
 X_std_pca = pca.fit_transform(X_std)  # Run the PCA
-print(pca.explained_variance_ratio_)  # print performance
+variation_ratio = [float("{:.3f}".format(float(i))) for i in pca.explained_variance_ratio_]
+cumulative_variation_ratio = [float("{:.3f}".format(sum(variation_ratio[:i]))) for i in range(len(variation_ratio))]
+print("Individual Variation", variation_ratio, "\nCumulative Variation", cumulative_variation_ratio)  # print performance
 # transform the dataframe into a numpy array to remake a data frame with the new PCA elements
 y_col = y_for_graph.to_numpy()
 
