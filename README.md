@@ -279,6 +279,11 @@ the step which made the ingredients into proportions of the whole recipe. This s
 in an attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
 vastly skewing the recipe.
 
+In training the models, I discovered that some methods, espeically linear methods like LR and LDA as well as decision trees,
+had roughly double the number of biscuits detected as cakes than cakes detected as biscuits, which is more than we would
+expect. This likely was caused by the fact that we had roughly twice as many cake recipes as biscuit recipes in the set.
+While nothing was done to tackle this issue in the models, the ensemble methods seem to have dealt with this well.
+
 The graphing step was fairly successful, as it helped to visualise a large number of features in two dimensions, and
 seeing as it matched up fairly well with our models, I imagine this was done fairly successfully. Even though reduction
 to 2 components only maintained about 56% of the variation of the dataset, since this part was only to visualise and
