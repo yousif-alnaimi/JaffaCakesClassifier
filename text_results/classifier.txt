@@ -2,7 +2,7 @@
 0.8671532846715329 0.007888616692616812 Forest
 0.8630656934306569 0.012840077913749515 Boosting
 0.8566423357664232 0.013135441610746855 KNN
-0.8005839416058393 0.014847511982588178 Tree
+0.7994160583941605 0.012059489885000487 Tree
 0.8522627737226276 0.008532344056176618 SVM
 0.8277372262773722 0.0069707073788690685 LDA
 LR               precision    recall  f1-score   support
@@ -15,6 +15,7 @@ LR               precision    recall  f1-score   support
 weighted avg       0.80      0.81      0.80       857
  [[188  98]
  [ 68 503]]
+ 0.8063010501750292
 Forest               precision    recall  f1-score   support
 
      biscuit       0.79      0.79      0.79       286
@@ -25,6 +26,7 @@ Forest               precision    recall  f1-score   support
 weighted avg       0.86      0.86      0.86       857
  [[225  61]
  [ 61 510]]
+ 0.8576429404900817
 Boost               precision    recall  f1-score   support
 
      biscuit       0.77      0.79      0.78       286
@@ -35,6 +37,7 @@ Boost               precision    recall  f1-score   support
 weighted avg       0.85      0.85      0.85       857
  [[226  60]
  [ 66 505]]
+ 0.852975495915986
 KNN               precision    recall  f1-score   support
 
      biscuit       0.78      0.78      0.78       286
@@ -45,16 +48,18 @@ KNN               precision    recall  f1-score   support
 weighted avg       0.85      0.85      0.85       857
  [[224  62]
  [ 64 507]]
+ 0.852975495915986
 Tree               precision    recall  f1-score   support
 
-     biscuit       0.68      0.74      0.71       286
-        cake       0.86      0.83      0.85       571
+     biscuit       0.68      0.75      0.71       286
+        cake       0.87      0.82      0.84       571
 
     accuracy                           0.80       857
-   macro avg       0.77      0.78      0.78       857
+   macro avg       0.77      0.79      0.78       857
 weighted avg       0.80      0.80      0.80       857
- [[211  75]
- [ 98 473]]
+ [[215  71]
+ [103 468]]
+ 0.7969661610268378
 SVM               precision    recall  f1-score   support
 
      biscuit       0.79      0.72      0.75       286
@@ -65,6 +70,7 @@ SVM               precision    recall  f1-score   support
 weighted avg       0.84      0.84      0.84       857
  [[206  80]
  [ 54 517]]
+ 0.8436406067677946
 LDA               precision    recall  f1-score   support
 
      biscuit       0.74      0.63      0.68       286
@@ -75,3 +81,4 @@ LDA               precision    recall  f1-score   support
 weighted avg       0.80      0.81      0.80       857
  [[181 105]
  [ 62 509]]
+ 0.8051341890315052
