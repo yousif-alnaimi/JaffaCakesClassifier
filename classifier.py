@@ -5,6 +5,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 # optional imports for the graphing script - not necessary by default
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -89,6 +90,11 @@ model6 = svm.SVC()
 scores6 = cross_val_score(model6, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores6.mean(), scores6.std(), "SVM")
 
+# LDA model
+model7 = LinearDiscriminantAnalysis()
+scores7 = cross_val_score(model7, X_train_std, y_train_std, cv=5, scoring="accuracy")
+print(scores7.mean(), scores7.std(), "LDA")
+
 # showing statistics more clearly using predictions and classification reports
 
 # logistic regression
@@ -129,3 +135,9 @@ pred_model6 = model6.fit(X_train_std, y_train_std)
 y_pred6 = pred_model6.predict(X_test_std)
 print("SVM", classification_report(y_test_std, y_pred6, labels=["biscuit", "cake"]),
       confusion_matrix(y_test_std, y_pred6, labels=["biscuit", "cake"]))
+
+# LDA classification test
+pred_model7 = model7.fit(X_train_std, y_train_std)
+y_pred7 = pred_model7.predict(X_test_std)
+print("LDA", classification_report(y_test_std, y_pred7, labels=["biscuit", "cake"]),
+      confusion_matrix(y_test_std, y_pred7, labels=["biscuit", "cake"]))

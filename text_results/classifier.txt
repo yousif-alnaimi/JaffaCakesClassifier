@@ -2,8 +2,9 @@
 0.8671532846715329 0.007888616692616812 Forest
 0.8630656934306569 0.012840077913749515 Boosting
 0.8566423357664232 0.013135441610746855 KNN
-0.8017518248175183 0.014404550520927319 Tree
+0.8005839416058393 0.014847511982588178 Tree
 0.8522627737226276 0.008532344056176618 SVM
+0.8277372262773722 0.0069707073788690685 LDA
 LR               precision    recall  f1-score   support
 
      biscuit       0.73      0.66      0.69       286
@@ -46,14 +47,14 @@ weighted avg       0.85      0.85      0.85       857
  [ 64 507]]
 Tree               precision    recall  f1-score   support
 
-     biscuit       0.66      0.73      0.70       286
-        cake       0.86      0.81      0.83       571
+     biscuit       0.68      0.74      0.71       286
+        cake       0.86      0.83      0.85       571
 
-    accuracy                           0.79       857
-   macro avg       0.76      0.77      0.76       857
-weighted avg       0.79      0.79      0.79       857
- [[210  76]
- [108 463]]
+    accuracy                           0.80       857
+   macro avg       0.77      0.78      0.78       857
+weighted avg       0.80      0.80      0.80       857
+ [[211  75]
+ [ 98 473]]
 SVM               precision    recall  f1-score   support
 
      biscuit       0.79      0.72      0.75       286
@@ -64,3 +65,13 @@ SVM               precision    recall  f1-score   support
 weighted avg       0.84      0.84      0.84       857
  [[206  80]
  [ 54 517]]
+LDA               precision    recall  f1-score   support
+
+     biscuit       0.74      0.63      0.68       286
+        cake       0.83      0.89      0.86       571
+
+    accuracy                           0.81       857
+   macro avg       0.79      0.76      0.77       857
+weighted avg       0.80      0.81      0.80       857
+ [[181 105]
+ [ 62 509]]
