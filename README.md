@@ -117,8 +117,9 @@ it is the only recipe to have no sugar in it, though it is still included as a p
 
 This step is the crux of the classification problem. A few models were chosen to serve as a basis to see which would be
 best to choose for the final model. The initial selection was logistic regression[[19]](#19), random forests[[20]](#20),
-gradient boosting[[21]](#21), K nearest-neighbours[[22]](#22), decision trees[[23]](#23), linear discriminant
-analysis[[24]](#24) and support vector machines[[25]](#25). These models were run in their default settings and through
+gradient boosting[[21]](#21), K nearest-neighbours[[22]](#22), decision trees[[23]](#23), support vector
+machines[[24]](#24), and linear discriminant analysis[[25]](#25).
+These models were run in their default settings and through
 a 5-fold cross validation test on the training, then a prediction on the test set with a classification report and
 confusion matrix (a table of predicted class in the columns and actual class in the rows - in this case column/row 1 is
 biscuit and column/row 2 is cake). Comparing
@@ -404,11 +405,11 @@ Loh W-Y. Classification and regression trees. WIREs Data Mining and Knowledge Di
 2011;1(1):14–23. 
 
 <a id="24">[24]</a>
-Fisher RA. The Use of Multiple Measurements in Taxonomic Problems.
-Annals of Eugenics. 1936;7(2):179–88. 
+Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–97. 
 
 <a id="25">[25]</a>
-Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–97. 
+Fisher RA. The Use of Multiple Measurements in Taxonomic Problems.
+Annals of Eugenics. 1936;7(2):179–88. 
 
 <a id="26">[26]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
