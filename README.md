@@ -278,7 +278,9 @@ since it is outside the training space, and as was done in the poster). While so
 established in the automatic scraper, like having less than 50g of sugar or flour, this was irrelevant in the end due to
 the step which made the ingredients into proportions of the whole recipe. This step was implemented in the scraped data
 in an attempt to reduce false detections, as there was a chance a unit was missed and the multiplier defaulted to 1,
-vastly skewing the recipe.
+vastly skewing the recipe. These issues could have been avoided if we could find the recipe for the store-bought Jaffa
+Cakes, since they are the ones typically referenced when asking this quesiton, however this is unfortunately a trade
+secret.
 
 In training the models, I discovered that some methods, espeically linear methods like LR and LDA as well as decision trees,
 had roughly double the number of biscuits detected as cakes than cakes detected as biscuits, which is more than we would
