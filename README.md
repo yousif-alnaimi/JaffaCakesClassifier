@@ -117,15 +117,16 @@ it is the only recipe to have no sugar in it, though it is still included as a p
 
 This step is the crux of the classification problem. A few models were chosen to serve as a basis to see which would be
 best to choose for the final model. The initial selection was logistic regression[[19]](#19), random forests[[20]](#20),
-gradient boosting[[21]](#21), K nearest-neighbours[[22]](#22), decision trees[[23]](#23), and support vector
-machines[[24]](#24). These models were run in their default settings and through a 5-fold cross validation test on the
-training, then a prediction on the test set with a classification report and confusion matrix (a table of predicted class
-in the columns and actual class in the rows - in this case column/row 1 is biscuit and column/row 2 is cake). Comparing
+gradient boosting[[21]](#21), K nearest-neighbours[[22]](#22), decision trees[[23]](#23), linear discriminant
+analysis[[24]](#24) and support vector machines[[25]](#25). These models were run in their default settings and through
+a 5-fold cross validation test on the training, then a prediction on the test set with a classification report and
+confusion matrix (a table of predicted class in the columns and actual class in the rows - in this case column/row 1 is
+biscuit and column/row 2 is cake). Comparing
 their means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient boosting,
 and k nearest-neighbour were the best algorithms in this case. In particular, the accuracy row in the classification report
 shows us that the test accuracy and cross validation accuracy were very similar, implying that the chance of over-fitting
 is low. The reasons for selection and rejection for each model is summarised in the table below:
-
+ 
 | Model       | Status | Reasoning |
 | ----------- | ----------- | ----------- |
 | Logistic Regression | Rejected | Lesser accuracy in detection in the training set, as well as a strong bias towards choosing cakes over biscuits, likely due to the difference in quantity of each data type. |
@@ -136,7 +137,7 @@ is low. The reasons for selection and rejection for each model is summarised in 
 | Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
 
 Then, for each of these models, the parameters, found on
-the [documentation pages for sklearn](https://scikit-learn.org/)[[25]](#25), were iterated through to maximise the
+the [documentation pages for sklearn](https://scikit-learn.org/)[[26]](#26), were iterated through to maximise the
 performance, while trying to keep the standard deviation low. This code is no longer in the script, but an example of the code
 used (in this case altering the `max_depth` parameter in the boosting algorithm)
 can be found below, as well as in the comments of `classifier.py` in the KNN graphing section:
@@ -282,7 +283,7 @@ seeing as it matched up fairly well with our models, I imagine this was done fai
 to 2 components only maintained about 56% of the variation of the dataset, since this part was only to visualise and
 not to train an algorithm on, this was sufficient for our purposes. An alternative
 method would be to separate out the ingredients into dry and wet, as done in the inspiration for this
-project[[26]](#26), however this method seemed to work perfectly, so this would likely be unnecessary.
+project[[27]](#27), however this method seemed to work perfectly, so this would likely be unnecessary.
 
 Due to a constraint on time, I could not iterate through as many parameter values as I would have liked, however,
 barring certain important parameters like `n_neighbors` in the KNN model or `max_depth` in the boosting model,
@@ -294,13 +295,13 @@ enough for our purposes.
 
 ## Modules Used
 
-BeautifulSoup[[27]](#27) for scraping
+BeautifulSoup[[28]](#28) for scraping
 
 pandas[[5]](#5) for DataFrames
 
-Scikit-learn[[25]](#25) for classification
+Scikit-learn[[25]](#26) for classification
 
-Matplotlib[[28]](#28) and seaborn[[29]](#29) for graphing
+Matplotlib[[29]](#29) and seaborn[[30]](#30) for graphing
 
 ## References
 
@@ -397,24 +398,28 @@ Loh W-Y. Classification and regression trees. WIREs Data Mining and Knowledge Di
 2011;1(1):14–23. 
 
 <a id="24">[24]</a>
+Fisher RA. The Use of Multiple Measurements in Taxonomic Problems.
+Annals of Eugenics. 1936;7(2):179–88. 
+
+<a id="25">[25]</a>
 Cortes C, Vapnik V. Support-vector networks. Mach Learn. 1995 Sep 1;20(3):273–97. 
 
-<a id="25">[25]</a> 
+<a id="26">[26]</a> 
 Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: Machine Learning in Python.
 Journal of Machine Learning Research. 2011;12(85):2825–30.
 
-<a id="26">[26]</a> 
+<a id="27">[27]</a> 
 Stevance HF. Using Artificial Intelligence to Shed Light on the Star of Biscuits: The Jaffa Cake. arXiv:210316575
 [astro-ph] [Internet]. 2021 Mar 30 [cited 2021 May 28]; Available from: http://arxiv.org/abs/2103.16575
 
-<a id="27">[27]</a> 
+<a id="28">[28]</a> 
 Richardson L. Beautiful soup documentation. [Internet]. 2007 Apr;
 Available from: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 
-<a id="28">[28]</a>
+<a id="29">[29]</a>
 Hunter JD. Matplotlib: A 2D graphics environment.
 Computing in Science & Engineering. 2007;9(3):90–5. 
 
-<a id="29">[29]</a>
+<a id="30">[30]</a>
 Waskom ML. seaborn: statistical data visualization.
 Journal of Open Source Software. 2021;6(60):3021. 
