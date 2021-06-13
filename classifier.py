@@ -32,7 +32,7 @@ scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accur
 print(scores3.mean(), scores3.std(), "Boosting")
 
 # # Boxplot code - no output is produced here - testing to try find the best result ended with poorer test and cv means
-# than the mean and sd method done below
+# # than the mean and sd method done below
 # # KNN model performance grapher with respect to k - boxplots
 # # initialise list of data for each iteration
 # perf_list = []
@@ -48,6 +48,7 @@ print(scores3.mean(), scores3.std(), "Boosting")
 # plt.figure(figsize=(21,6))
 # plt.boxplot(results)
 # ax.set_xticklabels(neighbours)
+# plt.savefig("graphs/KNN_boxplot.png", dpi=300)
 # plt.show()
 
 
@@ -97,7 +98,7 @@ print(scores3.mean(), scores3.std(), "Boosting")
 # plt.show()
 
 # Chosen KNN model
-model4 = KNeighborsClassifier(n_neighbors=40, weights="distance", algorithm="ball_tree", p=2)
+model4 = KNeighborsClassifier(n_neighbors=22, weights="distance", algorithm="ball_tree", p=2)
 scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores4.mean(), scores4.std(), "KNN")
 
