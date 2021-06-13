@@ -161,7 +161,7 @@ Here we can see that K=22 has the highest mean, as well as a middling standard d
 standard deviation across this graph are fairly low, so this does not matter too much), and so this was
 chosen as the value for n_neighbours in the final model.
 
-Note that we tried the boxplot method suggested in lectures - the output can be found in "graphs/KNN_boxplot.png".
+Note that we tried the boxplot method suggested in lectures - the output can be found in `graphs/KNN_boxplot.png`.
 This was not chosen, as the best result found this way had a lower cv mean accuracy, high standard deviation, as well as a
 lower detection accuracy on the test set than the method of plotting both means and standard deviations.
 
