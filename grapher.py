@@ -33,8 +33,10 @@ X_std = sc.fit_transform(X_for_graph)
 pca = decomposition.PCA(n_components=9)
 X_std_pca = pca.fit_transform(X_std)  # Run the PCA
 variation_ratio = [float("{:.3f}".format(float(i))) for i in pca.explained_variance_ratio_]
-cumulative_variation_ratio = [float("{:.3f}".format(sum(variation_ratio[:i+1]))) for i in range(len(variation_ratio))]
-print("Individual Variation", variation_ratio, "\nCumulative Variation", cumulative_variation_ratio)  # print performance
+cumulative_variation_ratio = [float("{:.3f}".format(sum(variation_ratio[:i + 1]))) for i in range(len(variation_ratio))]
+components = [[float("{:.3f}".format(float(i))) for i in j] for j in pca.components_]
+print("Individual Variation", variation_ratio, "\nCumulative Variation", cumulative_variation_ratio,
+      "\nComponents Details", components)  # print performance
 # transform the dataframe into a numpy array to remake a data frame with the new PCA elements
 y_col = y_for_graph.to_numpy()
 
