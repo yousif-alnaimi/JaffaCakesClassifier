@@ -41,7 +41,8 @@ print("Individual Variation", variation_ratio, "\nCumulative Variation", cumulat
 y_col = y_for_graph.to_numpy()
 
 # generate new data frame with our new PCA components and the colour labels
-df_for_graph = pd.DataFrame({"PCA component 1": X_std_pca[:, 0], "PCA component 2": X_std_pca[:, 1], "colour": y_col})
+df_for_graph = pd.DataFrame(
+    {"Principal Component 1": X_std_pca[:, 0], "Principal Component 2": X_std_pca[:, 1], "colour": y_col})
 
 # optional colour palette setting - done in the colours of chocolate, orange, and tan
 # disabled by default as the graph is not very clear
@@ -52,12 +53,12 @@ df_for_graph = pd.DataFrame({"PCA component 1": X_std_pca[:, 0], "PCA component 
 # generate plots separately, using 3 different plots on the same axis, done by filtering for the label
 # (in this case the column "colour") and drawing the graphs separately for each, allowing control over
 # transparency and shape for each data set
-gfg_pca = sns.scatterplot(x="PCA component 1", y="PCA component 2", label="cake",
+gfg_pca = sns.scatterplot(x="Principal Component 1", y="Principal Component 2", label="cake",
                           data=df_for_graph[df_for_graph.colour == "cake"], alpha=0.12)
-sns.scatterplot(x="PCA component 1", y="PCA component 2", label="biscuit",
+sns.scatterplot(x="Principal Component 1", y="Principal Component 2", label="biscuit",
                 data=df_for_graph[df_for_graph.colour == "biscuit"], alpha=0.12, ax=gfg_pca)
 # colour and size are marked separately in this graph to more clearly show the jaffa cake data points as large stars
-sns.scatterplot(x="PCA component 1", y="PCA component 2", label="jaffa cake",
+sns.scatterplot(x="Principal Component 1", y="Principal Component 2", label="jaffa cake",
                 data=df_for_graph[df_for_graph.colour == "jaffa"], alpha=1, marker="*", s=200, ax=gfg_pca)
 
 # plot legend
@@ -68,12 +69,12 @@ lgnd.legendHandles[1].set_alpha(0.5)
 
 # for loop to go through every jaffa cake point and label it with the recipe number
 for i in range(11):
-    plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[i],
-             y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[i],
+    plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["Principal Component 1"])[i],
+             y=list(df_for_graph[df_for_graph.colour == "jaffa"]["Principal Component 2"])[i],
              s=str(i + 1), fontdict=dict(color="black", alpha=0.75, size=11))
 # extra line to reformat recipe 11 as otherwise it would overlap with the text of number 3
-plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 1"])[11] - 0.05,
-         y=list(df_for_graph[df_for_graph.colour == "jaffa"]["PCA component 2"])[11], s="12",
+plt.text(x=list(df_for_graph[df_for_graph.colour == "jaffa"]["Principal Component 1"])[11] - 0.05,
+         y=list(df_for_graph[df_for_graph.colour == "jaffa"]["Principal Component 2"])[11], s="12",
          fontdict=dict(color="black", alpha=0.75, size=11))
 
 # save the figure into a file, then show the graph in the console
