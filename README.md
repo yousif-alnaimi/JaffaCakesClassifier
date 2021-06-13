@@ -113,6 +113,20 @@ Notice the point corresponding to recipe 11 in the far right of the graph - this
 sugar mentioned earlier. We can clearly see this is an outlier, especially as it deviates from the rest of the data as
 it is the only recipe to have no sugar in it, though it is still included as a potential recipe.
 
+The table below gives the details of each principal component:
+
+| Principal Component | sugar  | butter | egg    | flour  | milk   | raising-agent | water  | salt   | syrup  |
+|---------------------|--------|--------|--------|--------|--------|---------------|--------|--------|--------|
+| 1                   | -0.561 | 0.142  | -0.346 | 0.736  | 0.002  | 0.004         | -0.029 | 0.001  | 0.050  |
+| 2                   | -0.114 | -0.768 | 0.074  | 0.095  | 0.616  | 0.018         | 0.048  | 0.001  | 0.031  |
+| 3                   | -0.399 | 0.467  | -0.169 | -0.477 | 0.604  | -0.007        | -0.027 | -0.002 | 0.010  |
+| 4                   | -0.544 | 0.011  | 0.816  | -0.036 | -0.173 | 0.001         | -0.085 | -0.002 | 0.011  |
+| 5                   | -0.269 | -0.147 | -0.156 | -0.230 | -0.255 | 0.001         | 0.850  | 0.001  | 0.204  |
+| 6                   | -0.050 | -0.109 | -0.114 | -0.146 | -0.126 | -0.006        | -0.350 | -0.002 | 0.902  |
+| 7                   | -0.142 | -0.127 | -0.147 | -0.154 | -0.152 | 0.920         | -0.148 | 0.089  | -0.139 |
+| 8                   | -0.106 | -0.104 | -0.103 | -0.106 | -0.103 | -0.206        | -0.106 | 0.939  | -0.104 |
+| 9                   | 0.333  | 0.333  | 0.333  | 0.333  | 0.333  | 0.333         | 0.333  | 0.333  | 0.333  |
+
 ## Classifying
 
 This step is the crux of the classification problem. A few models were chosen to serve as a basis to see which would be
