@@ -31,8 +31,29 @@ model3 = GradientBoostingClassifier(loss="exponential", random_state=0, n_estima
 scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores3.mean(), scores3.std(), "Boosting")
 
-# KNN model performance grapher with respect to k - disabled by default as graph is already obtained
-# initialise list of data for each iteration
+# # Boxplot code - no output is produced here - testing to try find the best result ended with poorer test and cv means
+# than the mean and sd method done below
+# # KNN model performance grapher with respect to k - boxplots
+# # initialise list of data for each iteration
+# perf_list = []
+# # for loop to iterate through n_neighbours (k) from 1 to 100, then add to a list of tuples
+# for i in range(3, 101):
+#       model4 = KNeighborsClassifier(n_neighbors=i, weights="distance", algorithm="ball_tree", p=2)
+#       scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
+#       perf_list.append((scores4, i))
+#
+# results = [i[0] for i in perf_list]
+# neighbours = [i[1] for i in perf_list]
+# fig, ax = plt.subplots()
+# plt.figure(figsize=(21,6))
+# plt.boxplot(results)
+# ax.set_xticklabels(neighbours)
+# plt.show()
+
+
+# # Code with individual plots instead of box plots
+# # KNN model performance grapher with respect to k - disabled by default as graph is already obtained
+# # initialise list of data for each iteration
 # perf_list = []
 # # for loop to iterate through n_neighbours (k) from 1 to 100, then add to a list of tuples
 # for i in range(3, 51):
@@ -76,7 +97,7 @@ print(scores3.mean(), scores3.std(), "Boosting")
 # plt.show()
 
 # Chosen KNN model
-model4 = KNeighborsClassifier(n_neighbors=22, weights="distance", algorithm="ball_tree", p=2)
+model4 = KNeighborsClassifier(n_neighbors=40, weights="distance", algorithm="ball_tree", p=2)
 scores4 = cross_val_score(model4, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores4.mean(), scores4.std(), "KNN")
 
