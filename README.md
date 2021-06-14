@@ -256,7 +256,7 @@ others have room for error.
 From this, we can see that Jaffa Cakes are highly likely to be cakes, as while the cake recognitions, other than
 recipes 10 and 11, have very high confidence, half of the biscuit detections, recipes 7 and 8, seem uncertain,
 both due to the varying classifications given by the algorithms, and the probabilities of those detections being
-relatively low. We can see this visually too in the PCA graph, where even the jaffa cake dataset seems to have a
+relatively low. We can see this visually too in the PCA graph, where the Jaffa Cake dataset seems to have a
 skew to the cake side of the graph.
 
 In the poster, we average the `p_cake` columns for each model to get a rough estimate across all the data.
