@@ -108,7 +108,7 @@ scores5 = cross_val_score(model5, X_train_std, y_train_std, cv=5, scoring="accur
 print(scores5.mean(), scores5.std(), "Tree")
 
 # SVM model
-model6 = svm.SVC()
+model6 = svm.SVC(C=1)
 scores6 = cross_val_score(model6, X_train_std, y_train_std, cv=5, scoring="accuracy")
 print(scores6.mean(), scores6.std(), "SVM")
 
