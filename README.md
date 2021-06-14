@@ -136,21 +136,7 @@ machines[[24]](#24), and linear discriminant analysis[[25]](#25).
 These models were run in their default settings and through
 a 5-fold cross validation test on the training, then a prediction on the test set with a classification report and
 confusion matrix (a table of predicted class in the columns and actual class in the rows - in this case column/row 1 is
-biscuit and column/row 2 is cake). Comparing
-their means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient boosting,
-and k nearest-neighbour were the best algorithms in this case. In particular, the accuracy row in the classification report
-shows us that the test accuracy and cross validation accuracy were very similar, implying that the chance of over-fitting
-is low. The reasons for selection and rejection for each model is summarised in the table below:
- 
-| Model       | Status | Reasoning |
-| ----------- | ----------- | ----------- |
-| Logistic Regression | Rejected | Lesser accuracy in detection in the training set, as well as a strong bias towards choosing cakes over biscuits, likely due to the difference in quantity of each data type. |
-| Random Forest | Accepted | Strongest accuracy and lowest standard deviation out of all six models, as well as an equal split in false classifications of both biscuits and cakes |
-| Gradient Boosting | Accepted | Similarly strong accuracy, but with a middling standard deviation. The confusion matrix, however, showed that it had less of a bias towards cake, than the random forest |
-| K Nearest-Neighbour | Accepted | Similarly strong accuracy to the random forest and a similar standard deviation to the gradient boosting model. The confusion matrix here was also showed less of a bias towards cake. The very different algorithm as well provides a good distinction to the random forest and boosting algorithms.
-| Decision Tree | Rejected | The lowest accuracy in the cross-validation and the highest standard deviation too. One redeeming quality however, was the close split to what we might expect with the ratio of cake to biscuit data. |
-| Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
-| Linear Discriminant Analysis | Rejected | Similar accuracy to logistic regression, lower standard deviation, but the same high bias towards classifying biscuits as cakes. |
+biscuit and column/row 2 is cake).
 
 Then, for each of these models, the parameters, found on
 the [documentation pages for sklearn](https://scikit-learn.org/)[[26]](#26), were iterated through to maximise the
@@ -165,6 +151,22 @@ for i in range(1,15):
   scores3 = cross_val_score(model3, X_train_std, y_train_std, cv=5, scoring="accuracy")
   print(scores3.mean(), scores3.std(), "Boosting", i)
  ```
+
+Comparing the tuned models' means and standard deviations, as well as the reports and matrices, it seemed that random forests, gradient
+boosting, and k nearest-neighbour were the best algorithms in this case. In particular, the accuracy row in the classification
+report shows us that the test accuracy and cross validation accuracy were very similar (within 1.5 standard deviations),
+implying that the chance of over-fitting is low.
+The reasons for selection and rejection for each model is summarised in the table below:
+ 
+| Model       | Status | Reasoning |
+| ----------- | ----------- | ----------- |
+| Logistic Regression | Rejected | Lesser accuracy in detection in the training set, as well as a strong bias towards choosing cakes over biscuits, likely due to the difference in quantity of each data type. |
+| Random Forest | Accepted | Strongest accuracy and lowest standard deviation out of all six models, as well as an equal split in false classifications of both biscuits and cakes |
+| Gradient Boosting | Accepted | Similarly strong accuracy, but with a middling standard deviation. The confusion matrix, however, showed that it had less of a bias towards cake, than the random forest |
+| K Nearest-Neighbour | Accepted | Similarly strong accuracy to the random forest and a similar standard deviation to the gradient boosting model. The confusion matrix here was also showed less of a bias towards cake. The very different algorithm as well provides a good distinction to the random forest and boosting algorithms.
+| Decision Tree | Rejected | The lowest accuracy in the cross-validation and the highest standard deviation too. One redeeming quality however, was the close split to what we might expect with the ratio of cake to biscuit data. |
+| Support Vector Machines | Rejected | Very high accuracy and low standard deviation, however the bias to cake was too strong to be included. |
+| Linear Discriminant Analysis | Rejected | Similar accuracy to logistic regression, lower standard deviation, but the same high bias towards classifying biscuits as cakes. |
  
 The resulting graph from collecting the mean performance and standard deviations for different values of K in the K
 nearest neighbours classification test can be found here:
