@@ -215,7 +215,7 @@ as a biscuit, or recipe 7 detected as a cake, as well as other potentially diffe
 have encountered due to the limited number of times I have repeated this experiment. For the sake of consistency and
 reproducibility, I have kept `random_state` at 0.
 
-With all of these models combined, we have a 72.2% chance across the algorithms that a jaffa cake recipe is considered a
+With all of these models combined, we have a 72.2% chance across the algorithms that a Jaffa Cake recipe is considered a
 cake. Even discounting recipe 11 for being outside the set we trained on, we still get a 69.7% chance of
 classifying a Jaffa Cake recipe as a cake.
 
